@@ -22,6 +22,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".myadapter"
+            android:exported="false" />
+        <activity
+            android:name=".Adminpage"
+            android:exported="false" />
+        <activity
+            android:name=".Homepage"
+            android:exported="false" />
+        <activity
             android:name=".FilePath"
             android:exported="false" />
         <activity
