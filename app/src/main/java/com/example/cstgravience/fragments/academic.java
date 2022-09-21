@@ -10,15 +10,10 @@ import android.view.ViewGroup;
 
 import com.example.cstgravience.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link academic#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class academic extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -27,7 +22,6 @@ public class academic extends Fragment {
     private String mParam2;
 
     public academic() {
-        // Required empty public constructor
     }
 
     /**

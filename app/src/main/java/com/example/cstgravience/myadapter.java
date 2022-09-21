@@ -22,14 +22,15 @@ public class myadapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position) {
             case 0:
-
                 return new academic();
             case 1:
                 return new Hostel();
             case 2:
                 return new Mess();
-            default:
+                case 3:
                 return new Personal();
+            default:
+                return new academic();
         }
     }
     @Override
