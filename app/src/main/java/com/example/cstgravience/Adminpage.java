@@ -20,12 +20,13 @@ public class Adminpage extends AppCompatActivity {
 
         viewPager2=findViewById(R.id.viewpage);
         tabLayout=findViewById(R.id.tablayout);
+        myadapter=new myadapter(this);
         viewPager2.setAdapter(myadapter);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-
+                viewPager2.setCurrentItem(tab.getPosition());
             }
 
             @Override

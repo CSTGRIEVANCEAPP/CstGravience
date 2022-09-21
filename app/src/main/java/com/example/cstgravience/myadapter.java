@@ -27,6 +27,7 @@ public class myadapter extends FragmentStateAdapter {
                 return new Hostel();
             case 2:
                 return new Mess();
+
                 case 3:
                 return new Personal();
             default:
