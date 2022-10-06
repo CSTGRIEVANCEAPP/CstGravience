@@ -14,6 +14,7 @@
         android:backgroundTint="#213AC3"
         android:text="Register"
         android:textSize="23dp"
+        android:background="@drawable/custom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,9 +23,9 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="77dp"
-        android:layout_height="77dp"
-        android:src="@drawable/img"
+        android:layout_width="102dp"
+        android:layout_height="96dp"
+        android:src="@drawable/ourlogo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,26 +34,26 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <com.google.android.material.textfield.TextInputLayout
-    android:id="@+id/textlayoutemail"
-    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-    android:layout_width="373dp"
-    android:layout_height="56dp"
-    android:hint="Enter Your Email"
+        android:id="@+id/textlayoutemail"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="376dp"
+        android:layout_height="68dp"
+        android:hint="Enter Your Email"
 
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.311"
-    tools:ignore="MissingConstraints">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.311"
+        tools:ignore="MissingConstraints">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/emailinput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableStart="@drawable/emailfocus"
-        android:background="@drawable/custom" />
-</com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailinput"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/custom"
+            android:drawableStart="@drawable/emailfocus" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textlayoutpass"

@@ -9,6 +9,7 @@ import com.example.cstgravience.fragments.Hostel;
 import com.example.cstgravience.fragments.Mess;
 import com.example.cstgravience.fragments.Personal;
 import com.example.cstgravience.fragments.academic;
+import com.google.android.material.badge.BadgeDrawable;
 
 
 public class myadapter extends FragmentStateAdapter {
