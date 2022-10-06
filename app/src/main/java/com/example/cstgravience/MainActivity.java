@@ -14,7 +14,7 @@ import com.example.cstgravience.fragments.Loginadapter;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
-Button signup,login;
+Button signup,login,loginadmin;
 ViewPager2 viewpagelogin;
 TabLayout tableLayoutlogin;
    Loginadapter Loginadapter;
@@ -23,8 +23,7 @@ TabLayout tableLayoutlogin;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        signup=findViewById(R.id.Signup);
-         login=findViewById(R.id.login);
+
 
 //
          viewpagelogin=findViewById(R.id.loginviewpage);
@@ -34,6 +33,7 @@ TabLayout tableLayoutlogin;
         viewpagelogin.setAdapter(Loginadapter);
 
         tableLayoutlogin.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewpagelogin.setCurrentItem(tab.getPosition());
@@ -50,30 +50,51 @@ TabLayout tableLayoutlogin;
             }
         });
 
+
         viewpagelogin.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+
+
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 super.onPageScrolled(position, positionOffset, positionOffsetPixels);
                 tableLayoutlogin.getTabAt(position).select();
+
+
+
             }
+
+
+//            signup = findViewById(R.id.Signup);
+//            login = findViewById(R.id.login);
+////          loginadmin=findViewById(R.id.loginadmin);
+////
+//                login.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Intent intent1 = new Intent(MainActivity.this, Homepage.class);
+//                    startActivity(intent1);
+//                }
+//            });
+//
+//                signup.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Intent intent2 = new Intent(MainActivity.this, Signup.class);
+//                    startActivity(intent2);
+//                }
+//            });
+//
+//
+//                loginadmin.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Intent intent3 = new Intent(MainActivity.this, Adminpage.class);
+//                    startActivity(intent3);
+//                }
+//            });
+//
+//
         });
 
 
-
-
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-       public void onClick(View view) {
-                 Intent intent=new Intent(MainActivity.this,Homepage.class);
-                startActivity(intent);
-             }
-         });
-//       signup.setOnClickListener(new View.OnClickListener() {
-//           @Override
-//           public void onClick(View view) {
-//               Intent intent=new Intent(MainActivity.this,Signup.class);
-//               startActivity(intent);
-////           }
-//       });
-    }
-}
+            }}

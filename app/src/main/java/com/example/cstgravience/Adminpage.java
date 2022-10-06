@@ -48,7 +48,9 @@ viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
         super.onPageScrolled(position, positionOffset, positionOffsetPixels);
         tabLayout.getTabAt(position).select();
     }
+
 });
+
 
     }
 }
