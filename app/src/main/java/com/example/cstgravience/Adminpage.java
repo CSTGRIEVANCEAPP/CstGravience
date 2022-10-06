@@ -6,6 +6,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.os.Bundle;
 import android.widget.TableLayout;
 
+import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.tabs.TabLayout;
 
 public class Adminpage extends AppCompatActivity {
@@ -22,6 +23,7 @@ public class Adminpage extends AppCompatActivity {
         tabLayout=findViewById(R.id.tablayout);
         myadapter=new myadapter(this);
         viewPager2.setAdapter(myadapter);
+
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -46,7 +48,9 @@ viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
         super.onPageScrolled(position, positionOffset, positionOffsetPixels);
         tabLayout.getTabAt(position).select();
     }
+
 });
+
 
     }
 }
