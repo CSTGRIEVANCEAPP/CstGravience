@@ -118,7 +118,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/login"
+                android:id="@+id/changepassword"
                 android:layout_width="277dp"
                 android:layout_height="61dp"
                 android:backgroundTint="@color/white"

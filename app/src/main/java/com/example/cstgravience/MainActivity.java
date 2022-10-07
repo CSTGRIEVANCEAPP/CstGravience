@@ -8,16 +8,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TableLayout;
 
-import com.example.cstgravience.fragments.Loginadapter;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
-Button signup,login,loginadmin;
-ViewPager2 viewpagelogin;
-TabLayout tableLayoutlogin;
-   Loginadapter Loginadapter;
+Button user,admin;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,76 +21,27 @@ TabLayout tableLayoutlogin;
         setContentView(R.layout.activity_main);
 
 
-//
-         viewpagelogin=findViewById(R.id.loginviewpage);
-        tableLayoutlogin=findViewById(R.id.tablayoutlogin);
+        user=findViewById(R.id.loginuseroption);
+        admin=findViewById(R.id.loginadminoption);
 
-        Loginadapter=new Loginadapter(this);
-        viewpagelogin.setAdapter(Loginadapter);
 
-        tableLayoutlogin.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-
+        user.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewpagelogin.setCurrentItem(tab.getPosition());
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,UserLogin.class);
+                startActivity(intent);
             }
+        });
 
+       admin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,Adminlogin.class);
+                startActivity(intent);
             }
         });
 
 
-        viewpagelogin.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
 
 
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
-                tableLayoutlogin.getTabAt(position).select();
-
-
-
-            }
-
-
-//            signup = findViewById(R.id.Signup);
-//            login = findViewById(R.id.login);
-////          loginadmin=findViewById(R.id.loginadmin);
-////
-//                login.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Intent intent1 = new Intent(MainActivity.this, Homepage.class);
-//                    startActivity(intent1);
-//                }
-//            });
-//
-//                signup.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Intent intent2 = new Intent(MainActivity.this, Signup.class);
-//                    startActivity(intent2);
-//                }
-//            });
-//
-//
-//                loginadmin.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Intent intent3 = new Intent(MainActivity.this, Adminpage.class);
-//                    startActivity(intent3);
-//                }
-//            });
-//
-//
-        });
-
-
-            }}
+    }}
