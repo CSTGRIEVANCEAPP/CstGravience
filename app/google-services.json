@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "937803249450",
+    "firebase_url": "https://cstgreviance-default-rtdb.firebaseio.com",
     "project_id": "cstgreviance",
     "storage_bucket": "cstgreviance.appspot.com"
   },
