@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-
+    android:background="@drawable/bcakgroundcustom"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
@@ -17,18 +17,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.122"
+
         tools:srcCompat="@tools:sample/avatars" />
 
 
-
     <Button
-        android:id="@+id/login"
-        android:layout_width="350dp"
-        android:layout_height="61dp"
-        android:backgroundTint="#213AC3"
+        android:id="@+id/loginuser"
+        android:layout_width="318dp"
+        android:layout_height="56dp"
+        android:textSize="18dp"
         android:background="@drawable/custom"
+        android:backgroundTint="#213AC3"
         android:text="Login"
-        android:textSize="23dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.409"
@@ -39,18 +40,18 @@
 
     <Button
         android:id="@+id/Signup"
-        android:layout_width="347dp"
-        android:layout_height="60dp"
+        android:layout_width="318dp"
+        android:layout_height="56dp"
         android:background="@drawable/custom"
         android:backgroundTint="#213AC3"
-        android:text="Sign Up as User"
-        android:textSize="23dp"
+        android:text="Sign Up "
+        android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintHorizontal_bias="0.426"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.777" />
+        app:layout_constraintVertical_bias="0.759" />
 
     <EditText
         android:id="@+id/EmailAddress"

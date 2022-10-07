@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/bcakgroundcustom"
 
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -23,12 +24,13 @@
 
     <Button
         android:id="@+id/loginadmin"
-        android:layout_width="350dp"
-        android:layout_height="61dp"
+        android:layout_width="318dp"
+        android:layout_height="56dp"
+        android:textSize="18dp"
         android:backgroundTint="#213AC3"
         android:background="@drawable/custom"
         android:text="Login"
-        android:textSize="23dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.409"

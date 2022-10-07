@@ -6,21 +6,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
-public class Signup extends AppCompatActivity {
-    Button button;
-
+public class Adminlogin extends AppCompatActivity {
+Button adminlogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
-        button=findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_adminlogin);
+
+        adminlogin=findViewById(R.id.loginadmin);
+        adminlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast toast=Toast.makeText(getApplicationContext(),"Registered",Toast.LENGTH_LONG);
-                toast.show();
+                Intent intent=new Intent(Adminlogin.this,Adminpage.class);
+                startActivity(intent);
             }
         });
     }
