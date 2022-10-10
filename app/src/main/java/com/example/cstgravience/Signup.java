@@ -12,6 +12,8 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
@@ -72,6 +74,7 @@ public class Signup extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()){
+                        sendVerificationEmail();
                         Toast.makeText(Signup.this, "User Registered", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(Signup.this, UserLogin.class));
                     }else{
@@ -80,6 +83,42 @@ public class Signup extends AppCompatActivity {
                 }
             });
         }
+    }
+//    private void sendVerificationEmail(){
+//        FirebaseAuth.getInstance().getCurrentUser()
+//                .sendEmailVerification()
+//                .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                    @Override
+//                    public void onSuccess(Void unused) {
+//                        Toast.makeText(Signup.this,"Email verification link sent",Toast.LENGTH_SHORT).show();
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        Toast.makeText(Signup.this,"Error! Email Not Sent",Toast.LENGTH_SHORT).show();
+//
+//
+//                    }
+//                });
+//
+//    }
+    private void sendVerificationEmail()
+
+    {
+
+        FirebaseAuth.getInstance().getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(Signup.this, "Verification Email sent", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
+                } else {
+                    Toast.makeText(Signup.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
+                }
+            }
+        });
     }
 
 }

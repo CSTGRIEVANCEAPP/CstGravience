@@ -2,7 +2,6 @@ package com.example.cstgravience;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -29,16 +28,51 @@ FirebaseAuth mAuth;
 
         userlogin=findViewById(R.id.loginuser);
         Signup=findViewById(R.id.Signup);
-        emailaddress=findViewById(R.id.emailinput);
+        emailaddress=findViewById(R.id.EmailAddress);
         Password=findViewById(R.id.Password);
 
 
         mAuth = FirebaseAuth.getInstance();
 
-        userlogin.setOnClickListener(view ->{
-            loginUser();
-        });
+      userlogin.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              String email=emailaddress.getText().toString().trim();
+              String password=Password.getText().toString().trim();
+              if(TextUtils.isEmpty(email)){
+                  emailaddress.setError("Email is required");
+                  return;
+              }
+              if(TextUtils.isEmpty(password)){
+                  Password.setError("Password is required");
+                  return;
+              }
+              if(password.length() <= 8){
+                  Password.setError("Your Password you have atleast 8 characters");
+                  return;
+              }
+              mAuth.signInWithEmailAndPassword(email,password
+              ).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                  @Override
+                  public void onComplete(@NonNull Task<AuthResult> task) {
+                      if(task.isSuccessful()){
+                          if(mAuth.getCurrentUser().isEmailVerified()){
+                              Toast.makeText(UserLogin.this,"Log In Successful",Toast.LENGTH_SHORT).show();
+                              startActivity(new Intent(UserLogin.this,Homepage.class));
 
+                          }
+                          else{
+                              Toast.makeText(UserLogin.this,"verify your email",Toast.LENGTH_SHORT).show();
+                          }
+                      }
+                      else{
+                          Toast.makeText(UserLogin.this,""+task.getException().toString(),Toast.LENGTH_SHORT).show();
+                      }
+                  }
+              });
+
+          }
+      });
 
 
 //original
@@ -59,28 +93,29 @@ FirebaseAuth mAuth;
 
 
     }
-    private void loginUser(){
-        String email = emailaddress.getText().toString();
-        String password = Password.getText().toString();
+//    private void loginUser(){new
+//        String email = emailaddress.getText().toString();
+//        String password = Password.getText().toString();
+//
+//        if (TextUtils.isEmpty(email)){
+//            emailaddress.setError("Email cannot be empty");
+//            emailaddress.requestFocus();
+//        }else if (TextUtils.isEmpty(password)){
+//            Password.setError("Password cannot be empty");
+//            Password.requestFocus();
+//        }else{
+//            mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+//                @Override
+//                public void onComplete(@NonNull Task<AuthResult> task) {
+//                    if(task.isSuccessful()){
+//                        Toast.makeText(UserLogin.this, "User Logged In", Toast.LENGTH_SHORT).show();
+//                        startActivity(new Intent(UserLogin.this, Homepage.class));
+//                    }else{
+//                        Toast.makeText(UserLogin.this, "Login error", Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//            });
+//        }
+//    }
 
-        if (TextUtils.isEmpty(email)){
-            emailaddress.setError("Email cannot be empty");
-            emailaddress.requestFocus();
-        }else if (TextUtils.isEmpty(password)){
-            Password.setError("Password cannot be empty");
-            Password.requestFocus();
-        }else{
-            mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if(task.isSuccessful()){
-                        Toast.makeText(UserLogin.this, "User Logged In", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(UserLogin.this, MainActivity.class));
-                    }else{
-                        Toast.makeText(UserLogin.this, "Login error", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-        }
-    }
 }
