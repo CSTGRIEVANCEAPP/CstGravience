@@ -7,8 +7,8 @@
     android:background="@drawable/bcakgroundcustom"
     tools:context=".Signup">
 
-
     <ProgressBar
+        android:indeterminateTint="@color/black"
         android:id="@+id/ProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
