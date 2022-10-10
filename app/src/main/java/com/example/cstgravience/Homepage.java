@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 import com.example.cstgravience.fragments.Aboutus;
@@ -30,6 +31,7 @@ public class Homepage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
+
 
 //        changepass=findViewById(R.id.changepassword);
 //        changepass.setOnClickListener(new View.OnClickListener() {

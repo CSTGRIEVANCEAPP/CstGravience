@@ -75,8 +75,8 @@ public class Signup extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()){
                         sendVerificationEmail();
-                        Toast.makeText(Signup.this, "User Registered", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(Signup.this, UserLogin.class));
+
                     }else{
                         Toast.makeText(Signup.this, "Registration Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -84,34 +84,14 @@ public class Signup extends AppCompatActivity {
             });
         }
     }
-//    private void sendVerificationEmail(){
-//        FirebaseAuth.getInstance().getCurrentUser()
-//                .sendEmailVerification()
-//                .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                    @Override
-//                    public void onSuccess(Void unused) {
-//                        Toast.makeText(Signup.this,"Email verification link sent",Toast.LENGTH_SHORT).show();
-//                    }
-//                })
-//                .addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        Toast.makeText(Signup.this,"Error! Email Not Sent",Toast.LENGTH_SHORT).show();
-//
-//
-//                    }
-//                });
-//
-//    }
-    private void sendVerificationEmail()
 
-    {
+    private void sendVerificationEmail() {
 
         FirebaseAuth.getInstance().getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(Signup.this, "Verification Email sent", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Signup.this, "Verify your email from the link sent", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.GONE);
                 } else {
                     Toast.makeText(Signup.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
