@@ -74,10 +74,14 @@ FirebaseAuth mAuth;
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
-                        Toast.makeText(UserLogin.this, "User Logged In", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(UserLogin.this, MainActivity.class));
+                        if(mAuth.getCurrentUser().isEmailVerified()){
+                            startActivity(new Intent(UserLogin.this, GravienceForm.class));
+                        }else{
+                            Toast.makeText(UserLogin.this, "Login error. Please verify your email", Toast.LENGTH_SHORT).show();
+                        }
+
                     }else{
-                        Toast.makeText(UserLogin.this, "Login error", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(UserLogin.this, "Login error", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
