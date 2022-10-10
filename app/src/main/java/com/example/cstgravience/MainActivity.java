@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 Button user,admin;
-    FirebaseAuth mAuth;
+ //   FirebaseAuth mAuth;
 
 
     @Override
@@ -25,7 +25,7 @@ Button user,admin;
 
         user=findViewById(R.id.loginuseroption);
         admin=findViewById(R.id.loginadminoption);
-        mAuth = FirebaseAuth.getInstance();
+   //     mAuth = FirebaseAuth.getInstance();
 
         user.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,12 +48,12 @@ Button user,admin;
 
 
     }
-    @Override
-    protected void onStart() {
-        super.onStart();
-        FirebaseUser user = mAuth.getCurrentUser();
-        if (user == null){
-            startActivity(new Intent(MainActivity.this,UserLogin.class));
-        }
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        FirebaseUser user = mAuth.getCurrentUser();
+//        if (user == null){
+//            startActivity(new Intent(MainActivity.this,UserLogin.class));
+//        }
+//    }
 }
