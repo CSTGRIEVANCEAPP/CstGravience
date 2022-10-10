@@ -33,13 +33,10 @@ public class Signup extends AppCompatActivity {
         cfinput = findViewById(R.id.cfinput);
         mAuth = FirebaseAuth.getInstance();
 
-
-
         button.setOnClickListener(view -> {
             createUser();
 
         });
-
 
     }
     private void createUser(){
