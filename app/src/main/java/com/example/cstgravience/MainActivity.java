@@ -15,7 +15,6 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 Button user,admin;
-
  // FirebaseAuth mAuth;
 
 

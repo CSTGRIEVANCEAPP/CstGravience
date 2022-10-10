@@ -77,7 +77,6 @@ FirebaseAuth mAuth;
                         if(mAuth.getCurrentUser().isEmailVerified()){
                             Intent intent=new Intent(UserLogin.this, Homepage.class);
                             startActivity(intent);
-
                         }else{
                             Toast.makeText(UserLogin.this, "Login error. Please verify your email", Toast.LENGTH_SHORT).show();
                         }
