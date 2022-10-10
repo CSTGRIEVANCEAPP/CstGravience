@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.cstgravience.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -26,6 +27,7 @@ public class Profile extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
 
     public Profile() {
         // Required empty public constructor

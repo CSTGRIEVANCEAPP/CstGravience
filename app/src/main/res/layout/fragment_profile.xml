@@ -16,26 +16,21 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="257dp"
-            android:layout_marginTop="23dp"
+            android:layout_height="215dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
-
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="228dp"
+                android:layout_height="200dp"
                 android:src="@drawable/avater">
-
             </ImageView>
-
-
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="57dp"
-            android:layout_marginTop="12dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="8dp"
             android:orientation="horizontal">
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="49dp"
@@ -43,109 +38,92 @@
                 android:text="user@124jt"
                 android:textAlignment="center"
                 android:textSize="26dp">
-
             </TextView>
-
-
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="57dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="5dp"
             android:gravity="center"
             android:elevation="14dp"
             android:orientation="horizontal">
 
-
             <Button
-                android:id="@+id/loginn"
+                android:id="@+id/drafts"
                 android:layout_width="292dp"
-                android:layout_height="61dp"
+                android:layout_height="50dp"
                 android:backgroundTint="@color/white"
                 android:text="Drafts"
                 android:textColor="@color/black"
                 android:textSize="13dp" />
 
-
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="57dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="5dp"
             android:gravity="center"
             android:orientation="horizontal">
 
-
             <Button
-                android:id="@+id/login"
+                android:id="@+id/starred"
                 android:layout_width="290dp"
-                android:layout_height="61dp"
+                android:layout_height="50dp"
                 android:backgroundTint="@color/white"
-
                 android:text="Starred"
                 android:textColor="@color/black"
                 android:textSize="13dp" />
 
-
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="57dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="5dp"
             android:gravity="center"
             android:orientation="horizontal">
-
-
             <Button
-                android:id="@+id/login"
+                android:id="@+id/my_post"
                 android:layout_width="283dp"
-                android:layout_height="61dp"
-
+                android:layout_height="50dp"
                 android:backgroundTint="@color/white"
                 android:text="My Post"
                 android:textColor="@color/black"
                 android:textSize="13dp" />
-
-
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="57dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="5dp"
             android:gravity="center"
             android:orientation="horizontal">
-
             <Button
                 android:id="@+id/changepassword"
                 android:layout_width="277dp"
-                android:layout_height="61dp"
+                android:layout_height="50dp"
                 android:backgroundTint="@color/white"
                 android:text="Change Password"
                 android:textColor="@color/black"
                 android:textSize="13dp" />
-
-
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="57dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:orientation="horizontal">
-
-
             <Button
-                android:id="@+id/login"
+                android:id="@+id/logout"
                 android:layout_width="277dp"
                 android:layout_height="61dp"
                 android:backgroundTint="@color/white"
                 android:text="Logout"
                 android:textColor="@color/black"
                 android:textSize="13dp" />
-
-
         </LinearLayout>
     </LinearLayout>
 
