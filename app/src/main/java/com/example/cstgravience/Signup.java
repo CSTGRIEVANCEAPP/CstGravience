@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,6 +24,7 @@ public class Signup extends AppCompatActivity {
     TextInputEditText passinput;
     TextInputEditText cfinput;
     FirebaseAuth mAuth;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,7 @@ public class Signup extends AppCompatActivity {
         passinput = findViewById(R.id.passinput);
         cfinput = findViewById(R.id.cfinput);
         mAuth = FirebaseAuth.getInstance();
+        progressBar=findViewById(R.id.ProgressBar);
 
         button.setOnClickListener(view -> {
             createUser();
@@ -46,10 +50,24 @@ public class Signup extends AppCompatActivity {
         if (TextUtils.isEmpty(email)){
             emailinput.setError("Email cannot be empty");
             emailinput.requestFocus();
-        }else if (TextUtils.isEmpty(password)){
+        }
+        else if(!email.endsWith(".cst@rub.edu.bt")){
+            emailinput.setError("Invalid email");
+        }
+        else if (TextUtils.isEmpty(password)){
             passinput.setError("Password cannot be empty");
             passinput.requestFocus();
-        }else{
+        }
+        else if(password.length() <= 8){
+            passinput.setError("Your Password should have atleast 8 characters");
+            return;
+        }
+        else if(!password.equals(cfinput.getText().toString())){
+            cfinput.setError("MisMatched Password");
+            return;
+        }
+        else{
+            progressBar.setVisibility(View.VISIBLE);
             mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
