@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "937803249450",
+    "firebase_url": "https://cstgreviance-default-rtdb.firebaseio.com",
+    "project_id": "cstgreviance",
+    "storage_bucket": "cstgreviance.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937803249450:android:e3572dadd05fb14790d053",
+        "android_client_info": {
+          "package_name": "com.example.cstgravience"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937803249450-8pd7m3frv1omrogm31uarvrri0458pgt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBst6jPt_86b7jxB1gWh-KYC_j8rrrDMc0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "937803249450-8pd7m3frv1omrogm31uarvrri0458pgt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
