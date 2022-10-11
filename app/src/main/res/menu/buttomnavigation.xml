@@ -10,4 +10,10 @@
     <item android:title="About Us"
         android:id="@+id/aboutus"
         android:icon="@drawable/ic_baseline_info_24"/>
+    <item android:title="Logout"
+        android:id="@+id/logout"
+        android:icon="@drawable/logout"
+
+
+        />
 </menu>
