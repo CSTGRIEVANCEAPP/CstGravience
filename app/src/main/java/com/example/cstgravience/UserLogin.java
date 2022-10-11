@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cstgravience.fragments.Mainhome;
@@ -18,10 +19,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class UserLogin extends AppCompatActivity {
-Button userlogin,Signup;
+Button userlogin,Signup,reset;
 EditText emailaddress, Password;
 FirebaseAuth mAuth;
 ProgressBar Progress_Bar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +34,17 @@ ProgressBar Progress_Bar;
         Signup=findViewById(R.id.Signup);
         emailaddress=findViewById(R.id.EmailAddress);
         Password=findViewById(R.id.Password);
+        reset=findViewById(R.id.fogotpw);
         Progress_Bar=findViewById(R.id.progress_bar);
         mAuth = FirebaseAuth.getInstance();
+
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserLogin.this, resetpassword.class);
+                startActivity(intent);
+            }
+        });
 
       userlogin.setOnClickListener(new View.OnClickListener() {
           @Override
@@ -56,6 +67,7 @@ ProgressBar Progress_Bar;
                   Password.setError("Your Password you have atleast 8 characters");
                   return;
               }
+
               mAuth.signInWithEmailAndPassword(email,password
               ).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                   @Override
