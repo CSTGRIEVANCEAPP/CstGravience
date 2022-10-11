@@ -14,8 +14,6 @@
         tools:ignore="MissingConstraints"
         >
 
-
-
     </FrameLayout>
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
