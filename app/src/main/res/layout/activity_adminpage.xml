@@ -23,27 +23,33 @@
                 android:layout_height="match_parent"
                 android:background="#2196F3"
                 android:textColor="@color/black"
+
                 tools:layout_editor_absoluteX="1dp"
                 tools:layout_editor_absoluteY="318dp">
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+
+                    android:icon="@drawable/academic"
                     android:text="Academic" />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:icon="@drawable/hostel"
                     android:text="Hostel" />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:icon="@drawable/personal"
                     android:text="Personal" />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:icon="@drawable/others"
                     android:text="Others" />
             </com.google.android.material.tabs.TabLayout>
 
@@ -52,13 +58,15 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="683dp"
+            android:layout_height="549dp"
             android:orientation="horizontal">
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/viewpage"
                 android:layout_width="match_parent"
-                android:layout_height="669dp">
+                android:layout_height="541dp">
+
+
 
             </androidx.viewpager2.widget.ViewPager2>
 
