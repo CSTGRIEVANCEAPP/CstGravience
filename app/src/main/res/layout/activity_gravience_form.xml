@@ -83,8 +83,8 @@
 
                 <EditText
                     android:id="@+id/grievance"
-                    android:layout_width="355dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="375dp"
+                    android:layout_height="188dp"
                     android:layout_marginLeft="10dp"
                     android:height="400dp"
                     android:background="@drawable/custom"
