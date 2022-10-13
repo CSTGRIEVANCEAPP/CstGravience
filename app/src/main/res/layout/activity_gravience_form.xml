@@ -51,7 +51,9 @@
                     android:layout_marginLeft="10dp"
                     android:autofillHints="Click here to sle"
                     android:background="@drawable/custom"
-                    android:drawableStart="@drawable/passwordfocus">
+                    >
+
+
 
                 </Spinner>
             </LinearLayout>

@@ -6,7 +6,7 @@
     android:orientation="vertical"
     app:cardElevation="7dp"
     android:id="@+id/maincard"
-    app:cardCornerRadius="15dp"
+
     android:layout_marginBottom="5dp"
 
     android:elevation="5dp"
@@ -61,7 +61,16 @@
             android:orientation="horizontal">
 
 
+            <Button
+                android:id="@+id/addtostarred"
+                android:layout_width="176dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="160dp"
 
+                android:text="Add to Starred">
+
+
+            </Button>
 
         </LinearLayout>
 
