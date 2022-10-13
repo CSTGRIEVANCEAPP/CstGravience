@@ -19,11 +19,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class UserLogin extends AppCompatActivity {
-Button userlogin,Signup,reset;
+Button userlogin,Signup;
 EditText emailaddress, Password;
 FirebaseAuth mAuth;
 ProgressBar Progress_Bar;
-
+TextView reset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
