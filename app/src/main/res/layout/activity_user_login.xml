@@ -61,9 +61,10 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/textinputlayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Signup" />
+        app:layout_constraintTop_toBottomOf="@+id/Signup"
+        app:layout_constraintVertical_bias="0.819" />
 
     <EditText
         android:id="@+id/EmailAddress"
@@ -113,4 +114,18 @@
 
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/fogotpw"
+        android:layout_width="176dp"
+        android:layout_height="64dp"
+        android:text="Forgot Password?"
+        app:layout_constraintBottom_toTopOf="@+id/textinputlayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.874" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

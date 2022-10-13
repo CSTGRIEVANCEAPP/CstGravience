@@ -17,6 +17,7 @@ import com.example.cstgravience.fragments.Profile;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Homepage extends AppCompatActivity {
 
@@ -63,6 +64,11 @@ break;
             case R.id.aboutus:
     getSupportFragmentManager().beginTransaction().replace(R.id.framelayout,aboutus).commit();
     break;
+            case R.id.logout:
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getApplicationContext(),UserLogin.class));
+                finish();
+                break;
 }
         return false;
     }
