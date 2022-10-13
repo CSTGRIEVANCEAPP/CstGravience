@@ -10,7 +10,7 @@ public class GravienceForm  extends AppCompatActivity {
 
 
     Spinner spinner;
-    String[] grievance={"Academic","Hostel","Personal","Others"};
+    String[] grievance={"Select Category","Academic","Hostel","Personal","Others"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -20,5 +20,10 @@ public class GravienceForm  extends AppCompatActivity {
         spinner =findViewById(R.id.categorydropdown);
 
 
+
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(GravienceForm.this, android.R.layout.simple_spinner_item,grievance);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
     }
 }
