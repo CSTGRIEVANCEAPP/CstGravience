@@ -2,14 +2,22 @@ package com.example.cstgravience.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.cstgravience.R;
+import com.example.cstgravience.adapterforrecycle;
+import com.example.cstgravience.datamodel;
 import com.google.android.material.badge.BadgeDrawable;
+
+import java.util.ArrayList;
 
 
 public class academic extends Fragment {
@@ -19,6 +27,9 @@ public class academic extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private ArrayList<datamodel> newsarraylist;
+    private String[] grievance;
+    private RecyclerView recycleview;
 
     public academic() {
     }
@@ -57,5 +68,44 @@ public class academic extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_academic, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+        super.onViewCreated(view, savedInstanceState);
+
+        dataInitialize();
+        recycleview=view.findViewById(R.id.academicR);
+        recycleview.setLayoutManager(new LinearLayoutManager(getContext()));
+        recycleview.setHasFixedSize(true);
+        adapterforrecycle myadapter=new adapterforrecycle(getContext(),newsarraylist);
+        recycleview.setAdapter(myadapter);
+        myadapter.notifyDataSetChanged();
+
+
+    }
+    private void dataInitialize(){
+        newsarraylist = new ArrayList<>();
+        grievance=new String[]{
+                getString(R.string.h1),
+                getString(R.string.h2),
+                getString(R.string.h3),
+                getString(R.string.h4),
+                getString(R.string.h5),
+        getString(R.string.h6),
+                getString(R.string.h7),
+                getString(R.string.h8),
+                getString(R.string.h9),
+                getString(R.string.h10)
+
+
+        };
+        for (int i=0;i<grievance.length;i++){
+
+            datamodel datamodel=new datamodel(grievance[i]);
+            newsarraylist.add(datamodel);
+        }
+
     }
 }
