@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-public class GravienceForm extends AppCompatActivity {
+public class GravienceForm  extends AppCompatActivity {
 
 
     Spinner spinner;
