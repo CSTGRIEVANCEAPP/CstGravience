@@ -20,7 +20,7 @@ public class GravienceForm  extends AppCompatActivity {
     EditText Grievance_Text;
 
     Spinner spinner;
-    String[] grievance={"Select Category","Academic","Hostel","Personal","Others"};
+    String[] grievance={"","Academic","Hostel","Personal","Others"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,23 +35,31 @@ public class GravienceForm  extends AppCompatActivity {
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-
+        spinner.setSelected(false);
         addGrievance = (Button) findViewById(R.id.postG);
         cancel_button = (Button) findViewById(R.id.cancelG);
         Grievance_Text=(EditText) findViewById(R.id.ugrievance);
 
+
         addGrievance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                rootNode = FirebaseDatabase.getInstance();
-                reference = rootNode.getReference("category");
-                String key = reference.push().getKey();
 
-                String grievance = Grievance_Text.getText().toString();
-                String sCategory = spinner.getSelectedItem().toString();
-                Toast.makeText(GravienceForm.this, sCategory+"", Toast.LENGTH_SHORT).show();
-                HelperClass helperClass = new HelperClass(grievance);
-                reference.child(sCategory).child(key).setValue(helperClass);
+                if(spinner.getSelectedItemPosition()==0){
+                    Toast.makeText(GravienceForm.this, "Please select a category", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else {
+                    rootNode = FirebaseDatabase.getInstance();
+                    reference = rootNode.getReference("category");
+                    String key = reference.push().getKey();
+
+                    String grievance = Grievance_Text.getText().toString();
+                    String sCategory = spinner.getSelectedItem().toString();
+                    Toast.makeText(GravienceForm.this, sCategory + "", Toast.LENGTH_SHORT).show();
+                    HelperClass helperClass = new HelperClass(grievance);
+                    reference.child(sCategory).child(key).setValue(helperClass);
+                }
             }
         });
     }

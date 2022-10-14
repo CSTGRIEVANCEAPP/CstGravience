@@ -44,20 +44,6 @@ public class Profile extends Fragment {
 
        changepasswordbtn = view.findViewById(R.id.changepassword);
        userinfo = view.findViewById(R.id.userinfo);
-//       user= FirebaseAuth.getInstance().getCurrentUser();
-//       reference = FirebaseDatabase.getInstance().getReference("Users").child(user.getUid());
-//       reference.addValueEventListener(new ValueEventListener() {
-//           @Override
-//           public void onDataChange(@NonNull DataSnapshot snapshot) {
-//               Users users = snapshot.getValue(Users.class);
-//               userinfo.setText(users.getID());
-//           }
-//
-//           @Override
-//           public void onCancelled(@NonNull DatabaseError error) {
-//
-//           }
-//       });
        changepasswordbtn.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
