@@ -23,6 +23,7 @@
         android:theme="@style/Theme.CstGravience"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
         <activity
             android:name=".resetpassword"
             android:exported="false" />
