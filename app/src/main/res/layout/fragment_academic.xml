@@ -14,10 +14,6 @@
         android:id="@+id/academicR"
         android:layout_height="match_parent"
         tools:listitem="@layout/listitems"
-
-
-
-
         />
 
 </FrameLayout>
