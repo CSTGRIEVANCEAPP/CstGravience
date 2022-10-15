@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,46 +30,34 @@ import java.nio.file.attribute.UserPrincipalLookupService;
 
 
 public class Profile extends Fragment {
-
     DatabaseReference reference;
     FirebaseUser user;
     TextView userinfo;
-    Button changepasswordbtn,starred;
+    Button changepasswordbtn;
 
-
-    public interface Profilelistner{
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
        View view = inflater.inflate(R.layout.fragment_profile, container, false);
-starred=view.findViewById(R.id.starred);
+
        changepasswordbtn = view.findViewById(R.id.changepassword);
        userinfo = view.findViewById(R.id.userinfo);
-//       user= FirebaseAuth.getInstance().getCurrentUser();
-//       reference = FirebaseDatabase.getInstance().getReference("Users").child(user.getUid());
-//       reference.addValueEventListener(new ValueEventListener() {
-//           @Override
-//           public void onDataChange(@NonNull DataSnapshot snapshot) {
-//               Users users = snapshot.getValue(Users.class);
-//               userinfo.setText(users.getID());
-//           }
-//
-//           @Override
-//           public void onCancelled(@NonNull DatabaseError error) {
-//
-//           }
-//       });
+       user= FirebaseAuth.getInstance().getCurrentUser();
+       reference = FirebaseDatabase.getInstance().getReference("Users").child(user.getUid());
+       reference.addValueEventListener(new ValueEventListener() {
+           @Override
+           public void onDataChange(@NonNull DataSnapshot snapshot) {
+               Users users = snapshot.getValue(Users.class);
+               userinfo.setText(users.getID());
+           }
 
-//        starred.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
+           @Override
+           public void onCancelled(@NonNull DatabaseError error) {
+
+           }
+       });
        changepasswordbtn.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
