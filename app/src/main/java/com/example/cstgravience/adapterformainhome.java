@@ -33,8 +33,7 @@ public class adapterformainhome extends RecyclerView.Adapter<adapterformainhome.
     @Override
     public void onBindViewHolder(@NonNull adapterformainhome.MyViewHolderHome holder, int position) {
 
-
-        displaydatamodel displaydatamodel = homearraylist.get(position);
+        displaydatamodel displaydatamodel =homearraylist.get(position);
         holder.displaygrievance.setText(displaydatamodel.displaygrievance);
 
     }
