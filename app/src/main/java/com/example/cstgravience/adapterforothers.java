@@ -11,28 +11,28 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class adapterforhostel extends RecyclerView.Adapter<adapterforhostel.MyViewHolder> {
+public class adapterforothers extends RecyclerView.Adapter<adapterforothers.MyViewHolder> {
     Context context;
-    ArrayList<hdatamodel> newsarraylist;
+    ArrayList<Odatamodel> newsarraylist;
 
-    public adapterforhostel(Context context,ArrayList<hdatamodel> newsarraylist) {
-        this.context=context;
-        this.newsarraylist=newsarraylist;
+    public adapterforothers(Context context, ArrayList<Odatamodel> newsarraylist) {
+        this.context = context;
+        this.newsarraylist = newsarraylist;
 
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v= LayoutInflater.from(context).inflate(R.layout.listitems,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.listitems, parent, false);
         return new MyViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        hdatamodel hdatamodel= newsarraylist.get(position);
-        holder.grievance.setText(hdatamodel.getGrievance());
+        Odatamodel Odatamodel = newsarraylist.get(position);
+        holder.grievance.setText(Odatamodel.getGrievance());
 
 
     }
@@ -42,13 +42,13 @@ public class adapterforhostel extends RecyclerView.Adapter<adapterforhostel.MyVi
         return newsarraylist.size();
     }
 
-    public  static class MyViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView grievance;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            grievance=itemView.findViewById(R.id.grievance);
+            grievance = itemView.findViewById(R.id.grievance);
         }
     }
 }
-

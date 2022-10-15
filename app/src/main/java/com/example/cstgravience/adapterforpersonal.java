@@ -11,11 +11,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class adapterforhostel extends RecyclerView.Adapter<adapterforhostel.MyViewHolder> {
+public class adapterforpersonal extends RecyclerView.Adapter<adapterforpersonal.MyViewHolder> {
     Context context;
-    ArrayList<hdatamodel> newsarraylist;
+    ArrayList<pdatamodel> newsarraylist;
 
-    public adapterforhostel(Context context,ArrayList<hdatamodel> newsarraylist) {
+    public adapterforpersonal(Context context,ArrayList<pdatamodel> newsarraylist) {
         this.context=context;
         this.newsarraylist=newsarraylist;
 
@@ -31,8 +31,8 @@ public class adapterforhostel extends RecyclerView.Adapter<adapterforhostel.MyVi
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        hdatamodel hdatamodel= newsarraylist.get(position);
-        holder.grievance.setText(hdatamodel.getGrievance());
+        pdatamodel pdatamodel= newsarraylist.get(position);
+        holder.grievance.setText(pdatamodel.getGrievance());
 
 
     }
@@ -51,4 +51,3 @@ public class adapterforhostel extends RecyclerView.Adapter<adapterforhostel.MyVi
         }
     }
 }
-

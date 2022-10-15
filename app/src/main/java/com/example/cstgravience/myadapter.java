@@ -8,7 +8,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.cstgravience.fragments.Hostel;
-import com.example.cstgravience.fragments.Mess;
+import com.example.cstgravience.fragments.Others;
 import com.example.cstgravience.fragments.Personal;
 import com.example.cstgravience.fragments.academic;
 import com.google.android.material.badge.BadgeDrawable;
@@ -34,7 +34,7 @@ public class myadapter extends FragmentStateAdapter {
                 return new Hostel();
 
             case 2:
-                return new Mess();
+                return new Others();
 
 
                 case 3:
