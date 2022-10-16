@@ -48,12 +48,12 @@ Button user,admin;
 
 
     }
-    @Override
-    protected void onStart() {
-        super.onStart();
-        FirebaseUser user = mAuth.getCurrentUser();
-        if (user == null){
-            startActivity(new Intent(MainActivity.this,UserLogin.class));
-        }
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        FirebaseUser user = mAuth.getCurrentUser();
+//        if (user == null){
+//            startActivity(new Intent(MainActivity.this,UserLogin.class));
+//        }
+//    }
 }

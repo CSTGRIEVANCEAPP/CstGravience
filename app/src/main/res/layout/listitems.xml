@@ -8,7 +8,6 @@
     android:id="@+id/maincard"
     app:cardCornerRadius="15dp"
     android:layout_marginBottom="5dp"
-
     android:elevation="5dp"
     android:layout_height="wrap_content">
 
