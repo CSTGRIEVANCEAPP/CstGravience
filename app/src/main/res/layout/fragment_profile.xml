@@ -36,7 +36,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="49dp"
                 android:baselineAligned="false"
-                android:text="user@124jt"
                 android:textAlignment="center"
                 android:textSize="26dp">
             </TextView>
@@ -118,11 +117,11 @@
             android:gravity="center"
             android:orientation="horizontal">
             <Button
-                android:id="@+id/logout"
+                android:id="@+id/signout"
                 android:layout_width="277dp"
                 android:layout_height="61dp"
                 android:backgroundTint="@color/white"
-                android:text="Logout"
+                android:text="Sign Out"
                 android:textColor="@color/black"
                 android:textSize="13dp" />
         </LinearLayout>

@@ -49,47 +49,47 @@ TextView reset;
       userlogin.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-              startActivity(new Intent(UserLogin.this,Homepage.class));
-//              Progress_Bar.setVisibility(View.VISIBLE);
-//              String email=emailaddress.getText().toString().trim();
-//              String password=Password.getText().toString().trim();
-//              if(TextUtils.isEmpty(email)){
-//                  Progress_Bar.setVisibility(View.GONE);
-//                  emailaddress.setError("Email is required");
-//                  return;
-//              }
-//              if(TextUtils.isEmpty(password)){
-//                  Progress_Bar.setVisibility(View.GONE);
-//                  Password.setError("Password is required");
-//                  return;
-//              }
-//              if(password.length() <= 8){
-//                  Progress_Bar.setVisibility(View.GONE);
-//                  Password.setError("Your Password you have atleast 8 characters");
-//                  return;
-//              }
-//
-//              mAuth.signInWithEmailAndPassword(email,password
-//              ).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//                  @Override
-//                  public void onComplete(@NonNull Task<AuthResult> task) {
-//                      if(task.isSuccessful()){
-//                          if(mAuth.getCurrentUser().isEmailVerified()){
-//                              Toast.makeText(UserLogin.this,"Logged In Successfully",Toast.LENGTH_SHORT).show();
-//                              startActivity(new Intent(UserLogin.this,Homepage.class));
-//
-//                          }
-//                          else{
-//                              Progress_Bar.setVisibility(View.GONE);
-//                              Toast.makeText(UserLogin.this,"verify your email",Toast.LENGTH_SHORT).show();
-//                          }
-//                      }
-//                      else{
-//                          Progress_Bar.setVisibility(View.GONE);
-//                          Toast.makeText(UserLogin.this,""+task.getException().toString(),Toast.LENGTH_SHORT).show();
-//                      }
-//                  }
-//              });
+             // startActivity(new Intent(UserLogin.this,Homepage.class));
+              Progress_Bar.setVisibility(View.VISIBLE);
+              String email=emailaddress.getText().toString().trim();
+              String password=Password.getText().toString().trim();
+              if(TextUtils.isEmpty(email)){
+                  Progress_Bar.setVisibility(View.GONE);
+                  emailaddress.setError("Email is required");
+                  return;
+              }
+              if(TextUtils.isEmpty(password)){
+                  Progress_Bar.setVisibility(View.GONE);
+                  Password.setError("Password is required");
+                  return;
+              }
+              if(password.length() <= 8){
+                  Progress_Bar.setVisibility(View.GONE);
+                  Password.setError("Your Password you have atleast 8 characters");
+                  return;
+              }
+
+              mAuth.signInWithEmailAndPassword(email,password
+              ).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                  @Override
+                  public void onComplete(@NonNull Task<AuthResult> task) {
+                      if(task.isSuccessful()){
+                          if(mAuth.getCurrentUser().isEmailVerified()){
+                              Toast.makeText(UserLogin.this,"Logged In Successfully",Toast.LENGTH_SHORT).show();
+                              startActivity(new Intent(UserLogin.this,Homepage.class));
+
+                          }
+                          else{
+                              Progress_Bar.setVisibility(View.GONE);
+                              Toast.makeText(UserLogin.this,"verify your email",Toast.LENGTH_SHORT).show();
+                          }
+                      }
+                      else{
+                          Progress_Bar.setVisibility(View.GONE);
+                          Toast.makeText(UserLogin.this,""+task.getException().toString(),Toast.LENGTH_SHORT).show();
+                      }
+                  }
+              });
 
           }
       });
