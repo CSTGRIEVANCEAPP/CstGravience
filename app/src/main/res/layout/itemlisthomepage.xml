@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     app:cardElevation="7dp"
+    android:layout_marginTop="20dp"
     android:id="@+id/maincard"
 
 
@@ -58,19 +59,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="23dp"
-            android:orientation="horizontal">
 
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/addtostarred"
-                android:layout_width="176dp"
+                style="@style/onlyicon"
+                android:layout_width="53dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="160dp"
+                android:layout_marginLeft="300dp"
+                android:background="@drawable/iconbuttoncustom"
+                app:icon="@drawable/ic_baseline_star_border_24"></Button>
 
-                android:text="Add to Starred">
-
-
-            </Button>
 
         </LinearLayout>
 

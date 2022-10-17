@@ -15,21 +15,31 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.cstgravience.Drafts;
 import com.example.cstgravience.R;
 import com.example.cstgravience.Signup;
+import com.example.cstgravience.UserLogin;
 import com.example.cstgravience.change_password;
+import com.example.cstgravience.model.Users;
+import com.example.cstgravience.resetpassword;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.nio.file.attribute.UserPrincipalLookupService;
 
 
 public class Profile extends Fragment {
 
     FirebaseUser user;
     TextView userinfo;
-    Button changepasswordbtn,signout,drafts;
+    Button changepasswordbtn,signout;
 
 
     @Override
@@ -41,18 +51,10 @@ public class Profile extends Fragment {
        changepasswordbtn = view.findViewById(R.id.changepassword);
        user=FirebaseAuth.getInstance().getCurrentUser();
        signout=view.findViewById(R.id.signout);
-       drafts=view.findViewById(R.id.drafts);
        changepasswordbtn.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                Intent intent = new Intent(getActivity(),change_password.class);
-               startActivity(intent);
-           }
-       });
-       drafts.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               Intent intent = new Intent(getActivity(), Drafts.class);
                startActivity(intent);
            }
        });

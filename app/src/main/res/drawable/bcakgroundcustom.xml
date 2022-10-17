@@ -8,9 +8,10 @@
         <shape android:shape="rectangle">
             <solid android:color="@android:color/white"/>
             <gradient
-android:angle="45"
+android:angle="34"
                 android:endColor="@color/white"
-                android:startColor="#03A9F4"
+                android:centerColor="@color/teal_200"
+                android:startColor="#00BCD4"
                 />
 
             <stroke android:color="#DFD5D1DF" android:width="1dp"/>

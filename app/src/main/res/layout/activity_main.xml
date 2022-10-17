@@ -41,8 +41,9 @@
     <Button
         android:id="@+id/loginuseroption"
         android:layout_width="183dp"
+        android:elevation="34dp"
         android:layout_height="53dp"
-        android:background="@drawable/buttomcustom"
+        android:background="@drawable/custom"
         android:text="USER"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
