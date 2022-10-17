@@ -1,6 +1,7 @@
 package com.example.cstgravience;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -65,11 +66,23 @@ public class GravienceForm  extends AppCompatActivity {
             }
         });
 
-        addtodrafts.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
+
+
+        //not displaying in drafts activity
+      addtodrafts.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+                String cate = spinner.getSelectedItem().toString();
+                String grievance = addGrievance.getText().toString();
+
+                Intent intent = new Intent(GravienceForm.this,Drafts.class);
+                intent.putExtra("keycate", cate);
+                intent.putExtra("keygrievance",grievance);
+                startActivity(intent);
+
+
+          }
+      });
     }
 }

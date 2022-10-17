@@ -30,7 +30,7 @@ public class Profile extends Fragment {
     FirebaseUser user;
     TextView userinfo;
     Button changepasswordbtn,signout,drafts;
-
+//
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
