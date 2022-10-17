@@ -14,8 +14,6 @@ import android.view.ViewGroup;
 
 import com.example.cstgravience.R;
 import com.example.cstgravience.adapterformainhome;
-import com.example.cstgravience.adapterforrecycle;
-import com.example.cstgravience.datamodel;
 import com.example.cstgravience.displaydatamodel;
 
 import java.util.ArrayList;

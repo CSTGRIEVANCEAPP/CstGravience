@@ -3,7 +3,6 @@ package com.example.cstgravience.fragments;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,12 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.cstgravience.HelperClass;
 import com.example.cstgravience.R;
 import com.example.cstgravience.adapterforrecycle;
-import com.example.cstgravience.datamodel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.badge.BadgeDrawable;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -30,7 +28,7 @@ public class academic extends Fragment {
     private DatabaseReference databaseReference;
     private String mParam1;
     private String mParam2;
-    private ArrayList<datamodel> newsarraylist;
+    private ArrayList<HelperClass> newsarraylist;
     ArrayList grievance=new ArrayList();
     private RecyclerView recycleview;
     private adapterforrecycle myadapter;
@@ -63,7 +61,7 @@ public class academic extends Fragment {
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()){
                     for (DataSnapshot dataSnapshot : task.getResult().getChildren()){
-                        datamodel datamodel = dataSnapshot.getValue(com.example.cstgravience.datamodel.class);
+                        HelperClass datamodel = dataSnapshot.getValue(com.example.cstgravience.HelperClass.class);
                         newsarraylist.add(datamodel);
                     }
                 }

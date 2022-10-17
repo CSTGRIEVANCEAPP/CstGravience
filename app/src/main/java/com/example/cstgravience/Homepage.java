@@ -33,16 +33,6 @@ public class Homepage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
 
-
-//        changepass=findViewById(R.id.changepassword);
-//        changepass.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent=new Intent(Homepage.this,change_password.class);
-//                startActivity(intent);
-//            }
-//        });
-
 bottomNavigationView=findViewById(R.id.bottomNavigationView);
 getSupportFragmentManager().beginTransaction().replace(R.id.framelayout,mainhome).commit();
         BadgeDrawable badgeDrawable=bottomNavigationView.getOrCreateBadge(R.id.Home);
