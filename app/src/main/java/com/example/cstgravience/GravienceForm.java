@@ -2,6 +2,7 @@ package com.example.cstgravience;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -14,7 +15,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class GravienceForm  extends AppCompatActivity {
-    Button addGrievance,cancel_button;
+    Button addGrievance,cancel_button,addtodrafts;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
     EditText Grievance_Text;
@@ -39,6 +40,7 @@ public class GravienceForm  extends AppCompatActivity {
         addGrievance = (Button) findViewById(R.id.postG);
         cancel_button = (Button) findViewById(R.id.cancelG);
         Grievance_Text=(EditText) findViewById(R.id.ugrievance);
+        addtodrafts = (Button) findViewById(R.id.addtodrafts);
 
 
         addGrievance.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +62,13 @@ public class GravienceForm  extends AppCompatActivity {
                     HelperClass helperClass = new HelperClass(grievance);
                     reference.child(sCategory).child(key).setValue(helperClass);
                 }
+            }
+        });
+
+        addtodrafts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }
