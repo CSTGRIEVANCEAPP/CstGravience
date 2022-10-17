@@ -23,8 +23,7 @@
         android:id="@+id/mainhomeR"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/itemlisthomepage">
-    </androidx.recyclerview.widget.RecyclerView>
+        tools:listitem="@layout/itemlisthomepage"></androidx.recyclerview.widget.RecyclerView>
 
 
 </RelativeLayout>

@@ -3,7 +3,6 @@ package com.example.cstgravience.fragments;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,9 +14,6 @@ import android.view.ViewGroup;
 import com.example.cstgravience.Odatamodel;
 import com.example.cstgravience.R;
 import com.example.cstgravience.adapterforothers;
-import com.example.cstgravience.adapterforrecycle;
-import com.example.cstgravience.datamodel;
-import com.example.cstgravience.pdatamodel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;

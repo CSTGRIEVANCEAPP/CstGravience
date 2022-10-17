@@ -57,7 +57,7 @@ public class GravienceForm  extends AppCompatActivity {
                     String grievance = Grievance_Text.getText().toString();
                     String sCategory = spinner.getSelectedItem().toString();
                     Toast.makeText(GravienceForm.this, sCategory + "", Toast.LENGTH_SHORT).show();
-                    HelperClass helperClass = new HelperClass(grievance);
+                    HelperClass helperClass = new HelperClass(grievance, key);
                     reference.child(sCategory).child(key).setValue(helperClass);
                 }
             }

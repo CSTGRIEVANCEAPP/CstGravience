@@ -1,14 +1,14 @@
 package com.example.cstgravience;
 
 public class Odatamodel {
-    String grievance;
+    String grievance,GrievanceId;
 
     public Odatamodel() {
     }
 
-    public Odatamodel(String grievance) {
-
+    public Odatamodel(String grievance, String grievanceId) {
         this.grievance = grievance;
+        GrievanceId = grievanceId;
     }
 
     public String getGrievance() {
@@ -17,5 +17,13 @@ public class Odatamodel {
 
     public void setGrievance(String grievance) {
         this.grievance = grievance;
+    }
+
+    public String getGrievanceId() {
+        return GrievanceId;
+    }
+
+    public void setGrievanceId(String grievanceId) {
+        GrievanceId = grievanceId;
     }
 }
