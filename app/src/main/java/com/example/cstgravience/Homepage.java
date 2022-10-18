@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,6 +28,7 @@ public class Homepage extends AppCompatActivity {
     Mainhome mainhome= new Mainhome();
     Profile profile=new Profile();
     Aboutus aboutus=new Aboutus();
+    private static final String SHARED_PREF = "sharedPrefs";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,8 @@ break;
     getSupportFragmentManager().beginTransaction().replace(R.id.framelayout,aboutus).commit();
     break;
             case R.id.logout:
+                SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREF,MODE_PRIVATE);
+                sharedPreferences.edit().clear().commit();
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(getApplicationContext(),UserLogin.class));
                 finish();

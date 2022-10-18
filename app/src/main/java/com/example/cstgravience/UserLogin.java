@@ -56,12 +56,6 @@ public static final String SHARED_PREF = "sharedPrefs";
                 startActivity(intent);
             }
         });
-//        userlogin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(UserLogin.this,Homepage.class));
-//            }
-//        });
 
       userlogin.setOnClickListener(new View.OnClickListener() {
           @Override
