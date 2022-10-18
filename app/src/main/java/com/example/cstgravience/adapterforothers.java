@@ -92,12 +92,37 @@ public class adapterforothers extends RecyclerView.Adapter<adapterforothers.MyVi
         holder.btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                AlertDialog.Builder builder = new AlertDialog.Builder(holder.grievance.getContext());
+                builder.setTitle("Are you sure?");
+                builder.setMessage("Deleted data can't be undo.");
+
+                builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
                 DatabaseReference reference = firebaseDatabase.getReference("Selected");
                 String key = reference.push().getKey();
 
                 reference.child(key).setValue(Odatamodel);
                 Toast.makeText(holder.grievance.getContext(),"Grievance added",Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(holder.grievance.getContext(),"Cancelled",Toast.LENGTH_SHORT).show();
+                    }
+                });
+                builder.show();
+
+
+//                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+//                DatabaseReference reference = firebaseDatabase.getReference("Selected");
+//                String key = reference.push().getKey();
+//
+//                reference.child(key).setValue(Odatamodel);
+//                Toast.makeText(holder.grievance.getContext(),"Grievance added",Toast.LENGTH_SHORT).show();
             }
         });
 

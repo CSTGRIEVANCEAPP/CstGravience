@@ -94,11 +94,51 @@ public class adapterforrecycle extends RecyclerView.Adapter<adapterforrecycle.My
         holder.btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-                DatabaseReference reference = firebaseDatabase.getReference("Selected");
-                String key = reference.push().getKey();
-                reference.child(key).setValue(datamodel);
-                Toast.makeText(holder.grievance.getContext(),"Grievance added",Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(holder.grievance.getContext());
+                builder.setTitle("Are you sure?");
+                builder.setMessage("Deleted data can't be undo.");
+
+                builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                        DatabaseReference reference = firebaseDatabase.getReference("Selected");
+                        String key = reference.push().getKey();
+                        reference.child(key).setValue(datamodel);
+                        Toast.makeText(holder.grievance.getContext(),"Grievance added",Toast.LENGTH_SHORT).show();
+
+                        String grivanceid = holder.grievance_Id.getText().toString();
+                        reference = firebaseDatabase.getReference("category");
+                        Query query = reference.child("Academic").orderByChild("grievanceId").equalTo(grivanceid);
+                        query.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                                    dataSnapshot.getRef().removeValue();
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(holder.grievance.getContext(),"Cancelled",Toast.LENGTH_SHORT).show();
+                    }
+                });
+                builder.show();
+
+//                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+//                DatabaseReference reference = firebaseDatabase.getReference("Selected");
+//                String key = reference.push().getKey();
+//                reference.child(key).setValue(datamodel);
+//                Toast.makeText(holder.grievance.getContext(),"Grievance added",Toast.LENGTH_SHORT).show();
             }
         });
 
