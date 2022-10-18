@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#FDF9F9"
-
     android:layout_height="match_parent"
+
+    android:background="#FDF9F9"
     tools:context=".MainActivity">
 
     <ImageView
@@ -21,24 +21,47 @@
         tools:srcCompat="@tools:sample/avatars" />
 
 
-
     <Button
         android:id="@+id/loginadmin"
         android:layout_width="318dp"
         android:layout_height="56dp"
-        android:textSize="18dp"
-        android:backgroundTint="#213AC3"
         android:background="@drawable/custom"
+        android:backgroundTint="#213AC3"
         android:text="Login"
+        android:textSize="18dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.409"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.626" />
+        app:layout_constraintVertical_bias="0.833" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/black"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/textinputlayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginadmin" />
 
 
+    <EditText
+        android:id="@+id/admin_ID"
+        android:layout_width="336dp"
+        android:layout_height="59dp"
+        app:layout_constraintBottom_toTopOf="@+id/EmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:hint="Signature"
+        android:inputType="textPassword"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.343" />
 
     <EditText
         android:id="@+id/EmailAddress"
@@ -57,7 +80,7 @@
         app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.343" />
+        app:layout_constraintVertical_bias="0.52" />
 
     <EditText
         android:id="@+id/Password"
@@ -75,17 +98,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.48" />
+        app:layout_constraintVertical_bias="0.656" />
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/textinputlayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="409dp"
-        android:hint="hint"
         android:layout_height="wrap_content"
+        android:hint="hint"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-
 
 
     </com.google.android.material.textfield.TextInputLayout>
