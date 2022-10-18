@@ -18,6 +18,7 @@ public class Adminpage extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,9 +30,11 @@ public class Adminpage extends AppCompatActivity {
         myadapter=new myadapter(this);
         viewPager2.setAdapter(myadapter);
 
+       // for (query){}
+
         BadgeDrawable badgeDrawableA = tabLayout.getTabAt(0).getOrCreateBadge();
         badgeDrawableA.setVisible(true);
-        badgeDrawableA.setNumber(5);
+        badgeDrawableA.setNumber(2);
 
         BadgeDrawable badgeDrawableH = tabLayout.getTabAt(1).getOrCreateBadge();
         badgeDrawableH.setVisible(true);
@@ -46,22 +49,40 @@ public class Adminpage extends AppCompatActivity {
         badgeDrawableO.setNumber(12);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager2.setCurrentItem(tab.getPosition());
+
+                if( tab.getPosition()==3){
+                    BadgeDrawable badgeDrawableO= tabLayout.getTabAt(3).getBadge();
+                    badgeDrawableO.clearNumber();
+                    badgeDrawableO.setVisible(false);
+                }
+                if( tab.getPosition()==0){
+                    BadgeDrawable badgeDrawableA= tabLayout.getTabAt(0).getBadge();
+                    badgeDrawableA.clearNumber();
+                    badgeDrawableA.setVisible(false);
+
+                }
+                if( tab.getPosition()==1){
+                    BadgeDrawable badgeDrawableH = tabLayout.getTabAt(1).getBadge();
+                    badgeDrawableH.clearNumber();
+                    badgeDrawableH.setVisible(false);
+                }
+                if( tab.getPosition()==2){
+                    BadgeDrawable badgeDrawableP = tabLayout.getTabAt(2).getBadge();
+                    badgeDrawableP.clearNumber();
+                    badgeDrawableP.setVisible(false);
+                }
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
             }
-
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
             }
-
-
         });
 
 viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
@@ -69,14 +90,7 @@ viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
         super.onPageScrolled(position, positionOffset, positionOffsetPixels);
         tabLayout.getTabAt(position).select();
-
-
     }
-
 });
-
-
     }
-
-
 }

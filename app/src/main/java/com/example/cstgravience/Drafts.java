@@ -6,12 +6,20 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class Drafts extends AppCompatActivity {
-TextView textView2;
+TextView category,complaint;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_drafts);
-        textView2=findViewById(R.id.textView2);
+        category=findViewById(R.id.category);
+        complaint=findViewById(R.id.complaint);
+
+
+        String cate = getIntent().getStringExtra("keycate");
+        String grievance = getIntent().getStringExtra("keygrievance");
+
+        category.setText(cate);
+        complaint.setText(grievance);
     }
 }
