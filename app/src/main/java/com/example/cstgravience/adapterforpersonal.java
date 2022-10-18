@@ -103,10 +103,25 @@ public class adapterforpersonal extends RecyclerView.Adapter<adapterforpersonal.
                         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
                         DatabaseReference reference = firebaseDatabase.getReference("Selected");
                         String key = reference.push().getKey();
-
                         reference.child(key).setValue(pdatamodel);
                         Toast.makeText(holder.grievance.getContext(),"Grievance added",Toast.LENGTH_SHORT).show();
 
+                        String grivanceid = holder.grievance_Id.getText().toString();
+                        reference = firebaseDatabase.getReference("category");
+                        Query query = reference.child("Others").orderByChild("grievanceId").equalTo(grivanceid);
+                        query.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                                    dataSnapshot.getRef().removeValue();
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
                     }
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

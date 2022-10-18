@@ -105,6 +105,23 @@ public class adapterforhostel extends RecyclerView.Adapter<adapterforhostel.MyVi
 
                 reference.child(key).setValue(hdatamodel);
                 Toast.makeText(holder.grievance.getContext(),"Grievance added",Toast.LENGTH_SHORT).show();
+
+                        String grivanceid = holder.grievance_Id.getText().toString();
+                        reference = firebaseDatabase.getReference("category");
+                        Query query = reference.child("Hostel").orderByChild("grievanceId").equalTo(grivanceid);
+                        query.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                                    dataSnapshot.getRef().removeValue();
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
                     }
                 });
 
