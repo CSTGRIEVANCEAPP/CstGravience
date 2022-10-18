@@ -23,6 +23,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/GVRANCE_Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="34dp"
@@ -43,10 +44,14 @@
                 android:id="@+id/grievance"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:layout_marginLeft="23dp"
                 android:text="Lets be supportiveLets be
                 supportiveLLets be supportiveLets be supportiveets be supportiveLets
                 be supportive,Lets be supportive"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints">
 
             </TextView>
@@ -66,10 +71,7 @@
                 android:layout_width="176dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="160dp"
-
                 android:text="Add to Starred">
-
-
             </Button>
 
         </LinearLayout>

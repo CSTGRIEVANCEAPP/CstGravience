@@ -57,10 +57,12 @@ public class GravienceForm  extends AppCompatActivity {
                     reference = rootNode.getReference("category");
                     String key = reference.push().getKey();
 
+
+
                     String grievance = Grievance_Text.getText().toString();
                     String sCategory = spinner.getSelectedItem().toString();
                     Toast.makeText(GravienceForm.this, sCategory + "", Toast.LENGTH_SHORT).show();
-                    HelperClass helperClass = new HelperClass(grievance, key);
+                    HelperClass helperClass = new HelperClass(grievance, key,sCategory);
                     reference.child(sCategory).child(key).setValue(helperClass);
                 }
             }

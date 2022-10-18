@@ -89,6 +89,18 @@ public class adapterforhostel extends RecyclerView.Adapter<adapterforhostel.MyVi
             }
         });
 
+        holder.btn_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                DatabaseReference reference = firebaseDatabase.getReference("Selected");
+                String key = reference.push().getKey();
+
+                reference.child(key).setValue(hdatamodel);
+                Toast.makeText(holder.grievance.getContext(),"Grievance added",Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
     }
 

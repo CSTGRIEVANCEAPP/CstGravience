@@ -89,6 +89,18 @@ public class adapterforpersonal extends RecyclerView.Adapter<adapterforpersonal.
             }
         });
 
+        holder.btn_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                DatabaseReference reference = firebaseDatabase.getReference("Selected");
+                String key = reference.push().getKey();
+
+                reference.child(key).setValue(pdatamodel);
+                Toast.makeText(holder.grievance.getContext(),"Grievance added",Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
     }
 
