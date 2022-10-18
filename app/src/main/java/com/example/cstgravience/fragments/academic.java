@@ -26,10 +26,10 @@ import java.util.ArrayList;
 public class academic extends Fragment {
 
     private DatabaseReference databaseReference;
-    private String mParam1;
-    private String mParam2;
-    private ArrayList<HelperClass> newsarraylist;
-    ArrayList grievance=new ArrayList();
+    //private String mParam1;
+    //private String mParam2;
+    public ArrayList<HelperClass> newsarraylist;
+   // ArrayList grievance=new ArrayList();
     private RecyclerView recycleview;
     private adapterforrecycle myadapter;
 
@@ -63,7 +63,9 @@ public class academic extends Fragment {
                     for (DataSnapshot dataSnapshot : task.getResult().getChildren()){
                         HelperClass datamodel = dataSnapshot.getValue(com.example.cstgravience.HelperClass.class);
                         newsarraylist.add(datamodel);
+
                     }
+
                 }
                 myadapter.notifyDataSetChanged();
             }

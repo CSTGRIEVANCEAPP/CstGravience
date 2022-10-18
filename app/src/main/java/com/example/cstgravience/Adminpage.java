@@ -1,13 +1,21 @@
 package com.example.cstgravience;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TableLayout;
 
+import com.example.cstgravience.fragments.academic;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -15,9 +23,9 @@ public class Adminpage extends AppCompatActivity {
     ViewPager2 viewPager2;
     TabLayout tabLayout;
     myadapter myadapter;
-
-
-
+    private FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+   // long size;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +37,25 @@ public class Adminpage extends AppCompatActivity {
         tabLayout=findViewById(R.id.tablayout);
         myadapter=new myadapter(this);
         viewPager2.setAdapter(myadapter);
-
+        firebaseDatabase=FirebaseDatabase.getInstance();
+//        databaseReference=firebaseDatabase.getReference("category");
+//        databaseReference.child("Academic").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                size = snapshot.getChildrenCount();
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
        // for (query){}
-
+        academic academic = new academic();
         BadgeDrawable badgeDrawableA = tabLayout.getTabAt(0).getOrCreateBadge();
+      //  Log.d("Error",String.valueOf(size));
         badgeDrawableA.setVisible(true);
-        badgeDrawableA.setNumber(2);
+   //     badgeDrawableA.setNumber((int)size);
 
         BadgeDrawable badgeDrawableH = tabLayout.getTabAt(1).getOrCreateBadge();
         badgeDrawableH.setVisible(true);

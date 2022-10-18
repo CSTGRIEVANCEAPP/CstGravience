@@ -3,6 +3,7 @@ package com.example.cstgravience;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -23,8 +24,10 @@ Button userlogin,Signup;
 EditText emailaddress, Password;
 FirebaseAuth mAuth;
 ProgressBar Progress_Bar;
+
 TextView reset;
 
+public static final String SHARED_PREF = "sharedPrefs";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +40,14 @@ TextView reset;
         reset=findViewById(R.id.fogotpw);
         Progress_Bar=findViewById(R.id.progress_bar);
         mAuth = FirebaseAuth.getInstance();
+        SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREF,MODE_PRIVATE);
+        String check = sharedPreferences.getString("CHECK", "");
+        if(check.equals("true")){
+            startActivity(new Intent(UserLogin.this,Homepage.class));
+            finish();
+        }
+
+
 
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,8 +91,14 @@ TextView reset;
                   public void onComplete(@NonNull Task<AuthResult> task) {
                       if(task.isSuccessful()){
                           if(mAuth.getCurrentUser().isEmailVerified()){
+                              SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF,MODE_PRIVATE);
+                              SharedPreferences.Editor editor = sharedPreferences.edit();
+                              editor.putString("CHECK", "true");
+                              editor.putString("EMAIL", emailaddress.getText().toString());
+                              editor.apply();
                               Toast.makeText(UserLogin.this,"Logged In Successfully",Toast.LENGTH_SHORT).show();
                               startActivity(new Intent(UserLogin.this,Homepage.class));
+                              finish();
 
                           }
                           else{

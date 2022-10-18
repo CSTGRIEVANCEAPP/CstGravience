@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -20,6 +21,8 @@ public class GravienceForm  extends AppCompatActivity {
     FirebaseDatabase rootNode;
     DatabaseReference reference;
     EditText Grievance_Text;
+    SharedPreferences sharedPreferences;
+    public static final String SHARED= "shared";
 
     Spinner spinner;
     String[] grievance={"","Academic","Hostel","Personal","Others"};
@@ -29,6 +32,7 @@ public class GravienceForm  extends AppCompatActivity {
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gravience_form);
+        sharedPreferences= getSharedPreferences("Drafts",MODE_PRIVATE);
         spinner =findViewById(R.id.categorydropdown);
 
 
@@ -75,14 +79,19 @@ public class GravienceForm  extends AppCompatActivity {
       addtodrafts.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-                String cate = spinner.getSelectedItem().toString();
-                String grievance = addGrievance.getText().toString();
+               // String cate = spinner.getSelectedItem().toString();
+               // String grievance = Grievance_Text.getText().toString();
+                SharedPreferences sharedPreferences = getSharedPreferences(SHARED,MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("complaint", Grievance_Text.getText().toString() );
+                editor.putString("cate", spinner.getSelectedItem().toString());
+                editor.apply();
 
-                Intent intent = new Intent(GravienceForm.this,Drafts.class);
-                intent.putExtra("keycate", cate);
-                intent.putExtra("keygrievance",grievance);
-                startActivity(intent);
+//              Intent intent = new Intent(GravienceForm.this,Drafts.class);
+//              intent.putExtra("keycate", cate);
 
+    //       intent.putExtra("keygrievance",complaint);
+  //            startActivity(intent);
 
           }
       });
