@@ -58,9 +58,13 @@ public class adapterforpersonal extends RecyclerView.Adapter<adapterforpersonal.
                     public void onClick(DialogInterface dialog, int which) {
                         String grivanceid = holder.grievance_Id.getText().toString();
 
-                        FirebaseDatabase firebaseDatabase =FirebaseDatabase.getInstance();
-                        DatabaseReference databaseReference = firebaseDatabase.getReference("category");
-                        Query query = databaseReference.child("Others").orderByChild("grievanceId").equalTo(grivanceid);
+                        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                        DatabaseReference reference = firebaseDatabase.getReference("Deleted");
+                        String key = reference.push().getKey();
+                        reference.child(key).setValue(pdatamodel);
+
+                        reference = firebaseDatabase.getReference("category");
+                        Query query = reference.child("Others").orderByChild("grievanceId").equalTo(grivanceid);
                         query.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {

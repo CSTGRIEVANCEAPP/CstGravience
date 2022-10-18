@@ -58,9 +58,13 @@ public class adapterforhostel extends RecyclerView.Adapter<adapterforhostel.MyVi
                     public void onClick(DialogInterface dialog, int which) {
                         String grivanceid = holder.grievance_Id.getText().toString();
 
-                        FirebaseDatabase firebaseDatabase =FirebaseDatabase.getInstance();
-                        DatabaseReference databaseReference = firebaseDatabase.getReference("category");
-                        Query query = databaseReference.child("Hostel").orderByChild("grievanceId").equalTo(grivanceid);
+                        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                        DatabaseReference reference = firebaseDatabase.getReference("Deleted");
+                        String key = reference.push().getKey();
+                        reference.child(key).setValue(hdatamodel);
+
+                        reference = firebaseDatabase.getReference("category");
+                        Query query = reference.child("Hostel").orderByChild("grievanceId").equalTo(grivanceid);
                         query.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -102,7 +106,6 @@ public class adapterforhostel extends RecyclerView.Adapter<adapterforhostel.MyVi
                         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
                 DatabaseReference reference = firebaseDatabase.getReference("Selected");
                 String key = reference.push().getKey();
-
                 reference.child(key).setValue(hdatamodel);
                 Toast.makeText(holder.grievance.getContext(),"Grievance added",Toast.LENGTH_SHORT).show();
 
