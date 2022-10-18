@@ -29,7 +29,7 @@ TextView reset;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
-
+        getSupportActionBar().hide();
         userlogin=findViewById(R.id.loginuser);
         Signup=findViewById(R.id.Signup);
         emailaddress=findViewById(R.id.EmailAddress);

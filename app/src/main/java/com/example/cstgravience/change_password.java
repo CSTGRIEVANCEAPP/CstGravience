@@ -25,6 +25,7 @@ FirebaseUser user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_change_password);
         updatebtn=findViewById(R.id.updatebtn);
         cancel_button=findViewById(R.id.cancel_button);

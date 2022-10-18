@@ -4,23 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bcakgroundcustom"
+    android:background="#FDF9F9"
+
     tools:context=".MainActivity">
 
+
+    //
 
     <TextView
         android:layout_width="414dp"
         android:layout_height="60dp"
         android:text="Welcome to Cst Grievance System"
-        android:textSize="23dp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
         android:textAlignment="center"
+
+        android:textColor="@color/black"
+        android:textSize="23dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.417">
+        app:layout_constraintVertical_bias="0.233">
 
     </TextView>
 
@@ -32,37 +37,43 @@
         android:src="@drawable/ourlogo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.122"
+        app:layout_constraintVertical_bias="0.551"
         tools:srcCompat="@tools:sample/avatars" />
-//
 
     <Button
         android:id="@+id/loginuseroption"
-        android:layout_width="183dp"
+        android:layout_width="378dp"
+        android:layout_height="44dp"
+        android:background="@drawable/buttomcustom"
         android:elevation="34dp"
-        android:layout_height="53dp"
-        android:background="@drawable/custom"
+        android:fontFamily="sans-serif-black"
         android:text="USER"
-        app:layout_constraintBottom_toBottomOf=" parent"
+        android:textSize="16dp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.41"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.513" />
+        app:layout_constraintVertical_bias="0.835" />
 
     <Button
         android:id="@+id/loginadminoption"
-        android:layout_width="181dp"
-        android:layout_height="53dp"
+        android:layout_width="378dp"
+        android:layout_height="44dp"
         android:background="@drawable/buttomcustom"
         android:text="Admin"
+        android:textSize="16dp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.424"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.632">
+        app:layout_constraintVertical_bias="0.928">
 
 
     </Button>

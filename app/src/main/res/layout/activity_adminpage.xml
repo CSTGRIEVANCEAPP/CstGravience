@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#0F0C24"
     tools:context=".Homepage">
 
 
@@ -21,16 +22,14 @@
                 android:id="@+id/tablayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#2196F3"
-                android:textColor="@color/black"
-
+                android:background="#000000"
+                android:textColor="@color/white"
                 tools:layout_editor_absoluteX="1dp"
                 tools:layout_editor_absoluteY="318dp">
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:icon="@drawable/academic"
                     android:text="Academic" />
 
@@ -58,13 +57,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="549dp"
+            android:layout_height="match_parent"
+            android:background="#FDF9F9"
             android:orientation="horizontal">
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/viewpage"
                 android:layout_width="match_parent"
-                android:layout_height="541dp">
+                android:layout_height="match_parent">
 
 
 

@@ -24,6 +24,8 @@ FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_resetpassword);
 
         emailEditText=findViewById(R.id.email);

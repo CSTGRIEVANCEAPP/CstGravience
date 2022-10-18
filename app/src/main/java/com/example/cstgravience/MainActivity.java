@@ -22,6 +22,7 @@ Button user,admin;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
 
         user=findViewById(R.id.loginuseroption);
         admin=findViewById(R.id.loginadminoption);

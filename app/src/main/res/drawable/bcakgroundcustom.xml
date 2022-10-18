@@ -9,9 +9,9 @@
             <solid android:color="@android:color/white"/>
             <gradient
 android:angle="34"
-                android:endColor="@color/white"
-                android:centerColor="@color/teal_200"
-                android:startColor="#00BCD4"
+                android:endColor="#AEA4A4"
+                android:centerColor="#AEA4A4"
+                android:startColor="#AEA4A4"
                 />
 
             <stroke android:color="#DFD5D1DF" android:width="1dp"/>

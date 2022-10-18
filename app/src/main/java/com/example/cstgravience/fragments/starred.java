@@ -74,7 +74,7 @@ public class starred extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         dataInitialize();
-        recycleview=view.findViewById(R.id.staredR);
+        recycleview=view.findViewById(R.id.stared);
         recycleview.setLayoutManager(new LinearLayoutManager(getContext()));
         recycleview.setHasFixedSize(true);
         adapterforstarred myadapter=new adapterforstarred(getContext(),staredarraylist);

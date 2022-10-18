@@ -9,6 +9,7 @@
     <FrameLayout
         android:id="@+id/framelayout"
         android:layout_width="406dp"
+
         android:layout_height="730dp"
         app:layout_constraintBaseline_toTopOf="@+id/bottomNavigationView"
         tools:ignore="MissingConstraints"

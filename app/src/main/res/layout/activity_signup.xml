@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bcakgroundcustom"
+    android:background="#FDF9F9"
     tools:context=".Signup">
 
     <ProgressBar
@@ -22,8 +22,8 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="318dp"
-        android:layout_height="56dp"
+        android:layout_width="351dp"
+        android:layout_height="50dp"
         android:background="@drawable/custom"
         android:backgroundTint="#213AC3"
         android:text="Register"
@@ -33,7 +33,7 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.839" />
+        app:layout_constraintVertical_bias="0.886" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -42,9 +42,10 @@
         android:src="@drawable/ourlogo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.122"
+        app:layout_constraintVertical_bias="0.106"
         tools:srcCompat="@tools:sample/avatars" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -56,15 +57,16 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.311"
+        app:layout_constraintVertical_bias="0.377"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailinput"
             android:layout_width="match_parent"
-            android:layout_height="68dp"
+            android:layout_height="match_parent"
             android:background="@drawable/custom"
             android:drawableStart="@drawable/emailfocus" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -72,21 +74,22 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textlayoutpass"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="373dp"
-        android:layout_height="70dp"
+        android:layout_width="376dp"
+        android:layout_height="72dp"
         android:hint="Enter Your Password"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.462"
+        app:layout_constraintVertical_bias="0.553"
         app:passwordToggleEnabled="true"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passinput"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="match_parent"
             android:background="@drawable/custom"
             android:drawableStart="@drawable/passwordfocus"
             android:inputType="textPassword" />
@@ -100,17 +103,17 @@
         android:hint="Re-enter Your Password"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.622"
+        app:layout_constraintVertical_bias="0.721"
         app:passwordToggleEnabled="true"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/cfinput"
             android:layout_width="match_parent"
-            android:layout_height="72dp"
+            android:layout_height="match_parent"
             android:background="@drawable/custom"
             android:drawableStart="@drawable/passwordfocus"
             android:inputType="textPassword" />

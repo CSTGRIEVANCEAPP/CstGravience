@@ -7,6 +7,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +22,7 @@ import com.example.cstgravience.Signup;
 import com.example.cstgravience.UserLogin;
 import com.example.cstgravience.change_password;
 import com.example.cstgravience.model.Users;
+import com.example.cstgravience.mypost;
 import com.example.cstgravience.resetpassword;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -39,7 +42,7 @@ public class Profile extends Fragment {
 
     FirebaseUser user;
     TextView userinfo;
-    Button changepasswordbtn,signout;
+    Button changepasswordbtn,signout,starredf;
 
 
     @Override
@@ -47,6 +50,18 @@ public class Profile extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+
+
+        starredf=view.findViewById(R.id.starredb);
+
+        starredf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), mypost.class);
+                startActivity(intent);
+
+            }
+        });
 
        changepasswordbtn = view.findViewById(R.id.changepassword);
        user=FirebaseAuth.getInstance().getCurrentUser();
