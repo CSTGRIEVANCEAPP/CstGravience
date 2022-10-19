@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -50,6 +51,7 @@ public class Homepage extends AppCompatActivity {
 //        badgeDrawable.setVisible(true);
 //        badgeDrawable.setNumber(10);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
 
@@ -71,9 +73,9 @@ public class Homepage extends AppCompatActivity {
 
                         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
                         sharedPreferences.edit().clear().commit();
+
                         FirebaseAuth.getInstance().signOut();
-                        startActivity(new Intent(getApplicationContext(), UserLogin.class));
-                        finish();
+
                         break;
                 }
                 return false;
@@ -101,6 +103,8 @@ public class Homepage extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
         switch (item.getItemId()) {
             case R.id.aboutus:
                 getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, aboutus).commit();
@@ -110,11 +114,27 @@ public class Homepage extends AppCompatActivity {
 
                 SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
                 sharedPreferences.edit().clear().commit();
+                alert.setTitle("Alert!")
+                                .setMessage("Are you sure you want to log out")
+                                .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Intent intent = new Intent(Homepage.this,UserLogin.class);
+                                        startActivity(intent);
+                                        finish();
+                                        Toast.makeText(Homepage.this, "Logout success", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+            alert.show();
 
 
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(getApplicationContext(), UserLogin.class));
-                finish();
                 break;
 
         }

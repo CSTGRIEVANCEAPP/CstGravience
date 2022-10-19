@@ -7,6 +7,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -34,6 +35,8 @@ public class Adminpage extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     FloatingActionButton fab;
+    private static final String SHARED_PREF = "sharedPrefs";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,20 +52,22 @@ public class Adminpage extends AppCompatActivity {
         firebaseDatabase=FirebaseDatabase.getInstance();
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
-        fab.setOnClickListener(new View.OnClickListener() {
+        
 
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // AlertDialog.Builder alert = new AlertDialog.Builder(this);
                 alert.setTitle("Alert!")
                         .setMessage("Are you sure you want to log out")
                         .setPositiveButton("yes", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
+                                        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
+                                        sharedPreferences.edit().clear().commit();
+                                        Toast.makeText(Adminpage.this, "Admin Logout success", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(Adminpage.this, Adminlogin.class);
                                         startActivity(intent);
                                         finish();
-                                        Toast.makeText(Adminpage.this, "Admin Logout success", Toast.LENGTH_SHORT).show();
                                     }
                                 });
                                 alert.setNegativeButton("No", new DialogInterface.OnClickListener() {

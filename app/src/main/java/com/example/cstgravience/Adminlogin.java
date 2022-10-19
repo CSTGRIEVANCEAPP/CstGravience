@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -26,7 +27,7 @@ Button adminlogin;
 EditText admin_email,admin_password,admin_ID;
 FirebaseAuth Admin_Auth;
 ProgressBar Progress_Bar;
-
+    public static final String SHARED_PREF = "sharedPrefs";
 
 
     @Override
@@ -41,6 +42,12 @@ ProgressBar Progress_Bar;
         admin_password = findViewById(R.id.Password);
         Progress_Bar = findViewById(R.id.progress_bar);
         admin_ID = findViewById(R.id.admin_ID);
+        SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREF,MODE_PRIVATE);
+        String check = sharedPreferences.getString("CHECK", "");
+        if(check.equals("true")){
+            startActivity(new Intent(Adminlogin.this,Adminpage.class));
+            finish();
+        }
 
         adminlogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +86,11 @@ ProgressBar Progress_Bar;
 
                         if(task.isSuccessful()){
                             if(Admin_Auth.getCurrentUser().isEmailVerified()){
+                                SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF,MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putString("CHECK", "true");
+                                editor.putString("EMAIL", admin_email.getText().toString());
+                                editor.apply();
                                 Toast.makeText(Adminlogin.this,"Logged In Successfully",Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(Adminlogin.this,Adminpage.class));
                             }
