@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,11 +24,13 @@ import com.google.firebase.auth.FirebaseAuth;
 public class Homepage extends AppCompatActivity {
 
 
-    Button changepass;
+    Button changepass,addtostared;
     BottomNavigationView bottomNavigationView;
     Mainhome mainhome= new Mainhome();
     Profile profile=new Profile();
     Aboutus aboutus=new Aboutus();
+
+
     private static final String SHARED_PREF = "sharedPrefs";
 
     @Override
@@ -35,11 +38,15 @@ public class Homepage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
 
+        addtostared=(Button) findViewById(R.id.addtostarred);
+
+
+
 bottomNavigationView=findViewById(R.id.bottomNavigationView);
-getSupportFragmentManager().beginTransaction().replace(R.id.framelayout,mainhome).commit();
-        BadgeDrawable badgeDrawable=bottomNavigationView.getOrCreateBadge(R.id.Home);
-        badgeDrawable.setVisible(true);
-        badgeDrawable.setNumber(10);
+//getSupportFragmentManager().beginTransaction().replace(R.id.framelayout,mainhome).commit();
+//        BadgeDrawable badgeDrawable=bottomNavigationView.getOrCreateBadge(R.id.Home);
+//        badgeDrawable.setVisible(true);
+//        badgeDrawable.setNumber(10);
 bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -74,5 +81,6 @@ break;
 
         Intent intent=new Intent(Homepage.this,GravienceForm.class);
         startActivity(intent);
+
     }
 }

@@ -37,9 +37,10 @@
                 android:id="@+id/userinfo"
                 android:layout_width="match_parent"
                 android:layout_height="49dp"
+                android:textColor="@color/black"
                 android:baselineAligned="false"
                 android:textAlignment="center"
-                android:textSize="26dp">
+                android:textSize="18dp">
             </TextView>
         </LinearLayout>
 

@@ -42,6 +42,17 @@ public class Profile extends Fragment {
        user=FirebaseAuth.getInstance().getCurrentUser();
        signout=view.findViewById(R.id.signout);
        drafts=view.findViewById(R.id.drafts);
+       userinfo=view.findViewById(R.id.userinfo);
+
+        FirebaseUser cUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        String uID = cUser.getEmail();
+
+        userinfo.setText(uID);
+
+
+
+
        changepasswordbtn.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {

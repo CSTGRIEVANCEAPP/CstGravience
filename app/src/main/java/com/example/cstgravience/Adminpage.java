@@ -74,36 +74,72 @@ public class Adminpage extends AppCompatActivity {
                 alert.show();
             }
         });
-//        databaseReference=firebaseDatabase.getReference("category");
-//        databaseReference.child("Academic").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                size = snapshot.getChildrenCount();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-       // for (query){}
-        academic academic = new academic();
-        BadgeDrawable badgeDrawableA = tabLayout.getTabAt(0).getOrCreateBadge();
-      //  Log.d("Error",String.valueOf(size));
-        badgeDrawableA.setVisible(true);
-   //     badgeDrawableA.setNumber((int)size);
+        DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference();
+        mDatabaseRef.child("category").child("Academic").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+              int count= (int) snapshot.getChildrenCount();
+                BadgeDrawable badgeDrawableA = tabLayout.getTabAt(0).getOrCreateBadge();
+                badgeDrawableA.setVisible(true);
+                badgeDrawableA.setNumber(count);
 
-        BadgeDrawable badgeDrawableH = tabLayout.getTabAt(1).getOrCreateBadge();
-        badgeDrawableH.setVisible(true);
-        badgeDrawableH.setNumber(6);
+            }
 
-        BadgeDrawable badgeDrawableP = tabLayout.getTabAt(2).getOrCreateBadge();
-        badgeDrawableP.setVisible(true);
-        badgeDrawableP.setNumber(9);
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-        BadgeDrawable badgeDrawableO= tabLayout.getTabAt(3).getOrCreateBadge();
-        badgeDrawableO.setVisible(true);
-        badgeDrawableO.setNumber(12);
+            }
+        });
+
+        mDatabaseRef.child("category").child("Hostel").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int countH= (int) snapshot.getChildrenCount();
+                BadgeDrawable badgeDrawableA = tabLayout.getTabAt(1).getOrCreateBadge();
+                badgeDrawableA.setVisible(true);
+                badgeDrawableA.setNumber(countH);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        mDatabaseRef.child("category").child("Others").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int countO= (int) snapshot.getChildrenCount();
+                BadgeDrawable badgeDrawableA = tabLayout.getTabAt(3).getOrCreateBadge();
+                badgeDrawableA.setVisible(true);
+                badgeDrawableA.setNumber(countO);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        mDatabaseRef.child("category").child("Personal").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int countP= (int) snapshot.getChildrenCount();
+                BadgeDrawable badgeDrawableA = tabLayout.getTabAt(2).getOrCreateBadge();
+                badgeDrawableA.setVisible(true);
+                badgeDrawableA.setNumber(countP);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+//        academic academic = new academic();
+
+
+
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 
