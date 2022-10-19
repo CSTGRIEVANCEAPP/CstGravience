@@ -59,6 +59,7 @@ public class Drafts extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot :snapshot.getChildren()){
                     DraftGrievance datamodel = dataSnapshot.getValue(com.example.cstgravience.DraftGrievance.class);
                     GDraftList.add(datamodel);
+                    Collections.reverse(GDraftList);
                 }
                 Draft_Adapter.notifyDataSetChanged();
             }

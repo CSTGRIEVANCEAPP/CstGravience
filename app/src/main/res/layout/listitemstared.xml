@@ -53,6 +53,16 @@
                     tools:ignore="MissingConstraints">
 
                 </TextView>
+                <TextView
+                    android:id="@+id/DG_ID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/grievance"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -63,14 +73,19 @@
                 android:layout_marginLeft="23dp"
                 android:orientation="horizontal">
 
+                <Button
+                    android:layout_width="wrap_content"
+                    android:text="Post"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Draft_PostBtn"/>
+
 
                 <Button
-                    android:id="@+id/Deletefromstared"
+                    android:id="@+id/DeletefromDraft"
                     android:layout_width="176dp"
                     android:layout_height="match_parent"
                     app:icon="@drawable/delete"
-                    style="@style/onlyicon"
-                    android:layout_marginStart="190dp"
+                    android:layout_marginLeft="160dp"
                     android:text="Remove">
 
 

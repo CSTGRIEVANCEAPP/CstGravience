@@ -1,8 +1,10 @@
 package com.example.cstgravience;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -77,19 +79,38 @@ public class GravienceForm  extends AppCompatActivity {
       addtodrafts.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-              String sCategory = spinner.getSelectedItem().toString();
-              String grievance = Grievance_Text.getText().toString();
-              FirebaseUser cUser = FirebaseAuth.getInstance().getCurrentUser();
+              AlertDialog.Builder builder = new AlertDialog.Builder(Grievance_Text.getContext());
+              builder.setTitle("Are you sure?");
+              builder.setMessage("Added data can't be undo.");
 
-              String uID = cUser.getUid();
-              String uEmail = cUser.getEmail().toString();
-//                Toast.makeText(GravienceForm.this,uID+"="+uEmail+sCategory+grievance,Toast.LENGTH_SHORT).show();
-              FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-              DatabaseReference databaseReference = firebaseDatabase.getReference("Draft");
+              builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                  @Override
+                  public void onClick(DialogInterface dialog, int which) {
+                      String sCategory = spinner.getSelectedItem().toString();
+                      String grievance = Grievance_Text.getText().toString();
+                      FirebaseUser cUser = FirebaseAuth.getInstance().getCurrentUser();
 
-              String key = databaseReference.push().getKey();
-              DraftGrievance draftGrievance = new DraftGrievance(sCategory,grievance,uEmail);
-              databaseReference.child(key).setValue(draftGrievance);
+                      String uID = cUser.getUid();
+                      String uEmail = cUser.getEmail().toString();
+                      FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                      DatabaseReference databaseReference = firebaseDatabase.getReference("Draft");
+
+                      String key = databaseReference.push().getKey();
+                      DraftGrievance draftGrievance = new DraftGrievance(sCategory,grievance,uEmail,key);
+                      databaseReference.child(key).setValue(draftGrievance);
+
+                  }
+              });
+
+              builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                  @Override
+                  public void onClick(DialogInterface dialog, int which) {
+                      Toast.makeText(Grievance_Text.getContext(),"Cancelled",Toast.LENGTH_SHORT).show();
+                  }
+              });
+              builder.show();
+
+
           }
       });
     }

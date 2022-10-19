@@ -18,6 +18,7 @@ package com.example.cstgravience;
         import com.google.firebase.database.ValueEventListener;
 
         import java.util.ArrayList;
+        import java.util.Collections;
 
 public class Starred extends AppCompatActivity {
     ArrayList<StarredDataModel> GStarredList;
@@ -55,6 +56,7 @@ public class Starred extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     StarredDataModel datamodel = dataSnapshot.getValue(com.example.cstgravience.StarredDataModel.class);
                     GStarredList.add(datamodel);
+                    Collections.reverse(GStarredList);
                 }
                 GStarred_Adapter.notifyDataSetChanged();
             }
