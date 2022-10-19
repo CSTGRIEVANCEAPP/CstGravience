@@ -74,8 +74,8 @@ public class adapterformainhome extends RecyclerView.Adapter<adapterformainhome.
                         StarredDataModel starredDataModel = new StarredDataModel(uEmail,sCategory,grievance,key);
                         databaseReference.child(key).setValue(starredDataModel);
 
+                        holder.Add_to_Starred.setBackgroundColor(R.color.black);
 
-                        holder.Add_to_Starred.setBackgroundColor(R.color.purple_500);
                     }
                 });
 
@@ -83,7 +83,7 @@ public class adapterformainhome extends RecyclerView.Adapter<adapterformainhome.
                     @SuppressLint("ResourceAsColor")
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        holder.Add_to_Starred.setBackgroundColor(R.color.teal_200);
+                        holder.Add_to_Starred.setBackgroundColor(R.color.ic_launcher_background);
                         Toast.makeText(holder.displaygrievance.getContext(),"Cancelled",Toast.LENGTH_SHORT).show();
 
                     }
