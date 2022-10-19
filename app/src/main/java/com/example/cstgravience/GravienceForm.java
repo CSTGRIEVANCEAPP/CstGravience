@@ -24,7 +24,7 @@ public class GravienceForm  extends AppCompatActivity {
     EditText Grievance_Text;
 
     Spinner spinner;
-    String[] grievance={"","Academic","Hostel","Personal","Others"};
+    String[] grievance={"Select Category","Academic","Hostel","Personal","Others"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

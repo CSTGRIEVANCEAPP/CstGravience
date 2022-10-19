@@ -24,6 +24,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class Profile extends Fragment {
@@ -44,6 +45,16 @@ public class Profile extends Fragment {
        signout=view.findViewById(R.id.signout);
        drafts=view.findViewById(R.id.drafts);
        starredButton = view.findViewById(R.id.starredb);
+
+
+
+       userinfo=view.findViewById(R.id.userinfo);
+        FirebaseUser cUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        String uID = cUser.getEmail();
+        userinfo.setText(uID);
+
+
        changepasswordbtn.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {

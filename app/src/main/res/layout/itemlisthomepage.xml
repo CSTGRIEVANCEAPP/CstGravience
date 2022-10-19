@@ -6,9 +6,6 @@
     android:orientation="vertical"
     app:cardElevation="7dp"
     android:id="@+id/maincard"
-
-
-
     android:elevation="5dp"
     android:layout_height="wrap_content">
 
@@ -58,17 +55,20 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="23dp"
+            android:layout_marginStart="23dp"
             android:orientation="horizontal">
 
 
             <Button
                 android:id="@+id/addtostarred"
-                android:layout_width="176dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="160dp"
+                style="@style/onlyicon"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="280dp"
+                app:icon="@drawable/ic_baseline_star_border_24"
+                tools:ignore="MissingConstraints">
 
-                android:text="Add to Starred">
+
 
 
             </Button>

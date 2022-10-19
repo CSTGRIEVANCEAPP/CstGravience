@@ -21,17 +21,18 @@
             android:layout_height="215dp"
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@drawable/avater">
-            </ImageView>
+                android:layout_height="wrap_content"
+
+                android:src="@drawable/ourlogo"></ImageView>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="30dp"
             android:orientation="horizontal">
             <TextView
                 android:id="@+id/userinfo"
@@ -47,14 +48,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="57dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="80dp"
             android:gravity="center"
             android:elevation="14dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/drafts"
-                android:layout_width="292dp"
+                style="@style/onlyicon"
+                android:layout_width="275dp"
                 android:layout_height="50dp"
                 android:backgroundTint="@color/white"
                 android:text="Drafts"
@@ -81,21 +83,7 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="57dp"
-            android:layout_marginTop="5dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-            <Button
-                android:id="@+id/my_post"
-                android:layout_width="283dp"
-                android:layout_height="50dp"
-                android:backgroundTint="@color/white"
-                android:text="My Post"
-                android:textColor="@color/black"
-                android:textSize="13dp" />
-        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"

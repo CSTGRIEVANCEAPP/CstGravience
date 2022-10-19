@@ -7,6 +7,8 @@
     android:background="#0F0C24"
     tools:context=".Homepage">
 
+
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,6 +26,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,7 +36,7 @@
                 android:id="@+id/tablayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#CDDC39"
+                android:background="#D6DEDF"
                 android:textColor="@color/white"
                 tools:layout_editor_absoluteX="1dp"
                 tools:layout_editor_absoluteY="318dp">
@@ -41,26 +44,22 @@
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:icon="@drawable/academic"
-                    android:text="Academic" />
+                    android:icon="@drawable/academic" />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:icon="@drawable/hostel"
-                    android:text="Hostel" />
+                    android:icon="@drawable/hostel" />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:icon="@drawable/personal"
-                    android:text="Personal" />
+                    android:icon="@drawable/personal" />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:icon="@drawable/others"
-                    android:text="Others" />
+                    android:icon="@drawable/others" />
 
 
             </com.google.android.material.tabs.TabLayout>

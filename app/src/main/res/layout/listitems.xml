@@ -20,16 +20,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="34dp"
-            android:text="Grievance"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:ignore="MissingConstraints">
+        <!--        <TextView-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="34dp"-->
+        <!--            android:text="Grievance"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            tools:ignore="MissingConstraints">-->
 
-        </TextView>
+        <!--        </TextView>-->
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/mainlayout"
@@ -81,22 +81,22 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/admin_addGrievance"
                 style="@style/onlyicon"
 
-                android:id="@+id/admin_addGrievance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="23dp"
-                app:icon="@drawable/post"
                 android:layout_marginStart="120dp"
+                android:layout_marginEnd="23dp"
                 android:text="Post"
+                app:icon="@drawable/post"
                 tools:ignore="MissingConstraints">
 
             </Button>
 
             <Button
-                style="@style/onlyicon"
                 android:id="@+id/admin_deleteGrievance"
+                style="@style/onlyicon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Delete"

@@ -75,14 +75,14 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="299dp"
                 android:layout_marginBottom="34dp"
                 android:orientation="horizontal">
 
                 <EditText
                     android:id="@+id/ugrievance"
                     android:layout_width="375dp"
-                    android:layout_height="188dp"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:height="400dp"
                     android:background="@drawable/custom"
@@ -98,20 +98,7 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
 
-
-                <Button
-                    android:id="@+id/upload_file"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:backgroundTint="#213AC3"
-                    android:text="Uploadfile"></Button>
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -120,27 +107,39 @@
 
                 <Button
                     android:id="@+id/postG"
-                    android:layout_width="99dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="15dp"
-                    android:backgroundTint="#213AC3"
+                    android:layout_marginLeft="12dp"
+                    style="@style/onlyicon"
+                    app:icon="@drawable/queue"
                     android:text="Post"></Button>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
 
                 <Button
                     android:id="@+id/addtodrafts"
+                    style="@style/onlyicon"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:backgroundTint="#213AC3"
-                    android:text="Add to Draft"></Button>
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="9dp"
+                    android:text="Add to Draft"
+                    app:icon="@drawable/drafts"></Button>
 
                 <Button
                     android:id="@+id/cancelG"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:backgroundTint="#213AC3"
-                    android:text="Delete"></Button>
+                    android:layout_marginLeft="9dp"
+                    style="@style/onlyicon"
+                    app:icon="@drawable/clear"
+                    android:text="Cancel"></Button>
             </LinearLayout>
         </LinearLayout>
 
