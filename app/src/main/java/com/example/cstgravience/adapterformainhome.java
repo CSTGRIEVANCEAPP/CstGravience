@@ -1,5 +1,6 @@
 package com.example.cstgravience;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.view.LayoutInflater;
@@ -54,13 +55,14 @@ public class adapterformainhome extends RecyclerView.Adapter<adapterformainhome.
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(holder.displaygrievance.getContext());
                 builder.setTitle("Are you sure?");
-                builder.setMessage("Deleted data can't be undo.");
+                builder.setMessage("It will be added to starred");
 
                 String sCategory = holder.GVRANCE_TITLE.getText().toString();
                 String grievance = holder.displaygrievance.getText().toString();
                 FirebaseUser cUser = FirebaseAuth.getInstance().getCurrentUser();
 
                 builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                    @SuppressLint("ResourceAsColor")
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String uID = cUser.getUid();
@@ -72,16 +74,23 @@ public class adapterformainhome extends RecyclerView.Adapter<adapterformainhome.
                         StarredDataModel starredDataModel = new StarredDataModel(uEmail,sCategory,grievance,key);
                         databaseReference.child(key).setValue(starredDataModel);
 
+
+                        holder.Add_to_Starred.setBackgroundColor(R.color.purple_500);
                     }
                 });
 
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @SuppressLint("ResourceAsColor")
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        holder.Add_to_Starred.setBackgroundColor(R.color.teal_200);
                         Toast.makeText(holder.displaygrievance.getContext(),"Cancelled",Toast.LENGTH_SHORT).show();
+
                     }
                 });
                 builder.show();
+
+
 
 
 

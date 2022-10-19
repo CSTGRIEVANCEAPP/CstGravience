@@ -4,8 +4,9 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    app:cardElevation="7dp"
+    app:cardElevation="8dp"
     android:id="@+id/maincard"
+    android:layout_marginBottom="5dp"
     android:elevation="5dp"
     android:layout_height="wrap_content">
 
@@ -25,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="34dp"
             android:text="Grievance"
-            android:textColor="@color/black"
+            android:textColor="@color/teal_700"
             app:layout_constraintEnd_toEndOf="parent"
             tools:ignore="MissingConstraints">
 
@@ -40,7 +41,7 @@
             <TextView
                 android:id="@+id/grievance"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="23dp"
                 android:text="Lets be supportiveLets be
                 supportiveLLets be supportiveLets be supportiveets be supportiveLets
@@ -63,6 +64,7 @@
                 android:id="@+id/addtostarred"
                 style="@style/onlyicon"
                 android:layout_width="55dp"
+                android:backgroundTint="@drawable/buttonc"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="280dp"
                 app:icon="@drawable/ic_baseline_star_border_24"
@@ -73,7 +75,10 @@
 
             </Button>
 
+
+
         </LinearLayout>
+
 
     </LinearLayout>
 

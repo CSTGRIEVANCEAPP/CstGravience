@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="34dp"
                 android:text="Grievance"
-                android:textColor="@color/black"
+                android:textColor="@color/teal_700"
                 app:layout_constraintEnd_toEndOf="parent"
                 tools:ignore="MissingConstraints">
 
@@ -44,7 +44,7 @@
                 <TextView
                     android:id="@+id/grievance"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="23dp"
                     android:text="Lets be supportiveLets be
                 supportiveLLets be supportiveLets be supportiveets be supportiveLets
@@ -74,20 +74,23 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:layout_width="wrap_content"
-                    android:text="Post"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/Draft_PostBtn"/>
+                    android:id="@+id/Draft_PostBtn"
+                    android:layout_width="60dp"
+                    android:layout_marginStart="190dp"
+style="@style/onlyicon"
+                    android:layout_height="match_parent"
+                    app:icon="@drawable/post" />
 
 
                 <Button
                     android:backgroundTint="@color/purple_200"
                     android:id="@+id/DeletefromDraft"
-                    android:layout_width="176dp"
-                    android:layout_height="match_parent"
-                    app:icon="@drawable/delete"
-                    android:layout_marginLeft="160dp"
-                    android:text="Remove">
+                    android:layout_width="60dp"
+                    style="@style/onlyicon"
+                    android:layout_height="wrap_content"
+          android:layout_marginLeft="23dp"
+                    android:textStyle="bold"
+                    app:icon="@drawable/delete">
 
 
                 </Button>
