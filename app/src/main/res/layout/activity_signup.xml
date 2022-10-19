@@ -22,8 +22,8 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="351dp"
-        android:layout_height="50dp"
+        android:layout_width="318dp"
+        android:layout_height="56dp"
         android:background="@drawable/custom"
         android:backgroundTint="#213AC3"
         android:text="Register"
@@ -74,8 +74,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textlayoutpass"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="376dp"
-        android:layout_height="72dp"
+        android:layout_width="339dp"
+        android:layout_height="59dp"
         android:hint="Enter Your Password"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -98,8 +98,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textlayoutcf"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="371dp"
-        android:layout_height="68dp"
+        android:layout_width="320dp"
+        android:layout_height="59dp"
         android:hint="Re-enter Your Password"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

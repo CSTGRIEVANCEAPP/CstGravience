@@ -8,6 +8,7 @@
     android:background="#FDF9F9"
     tools:context=".MainActivity">
 
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="111dp"
@@ -17,9 +18,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.122"
+        app:layout_constraintVertical_bias="0.11"
         tools:srcCompat="@tools:sample/avatars" />
-
 
     <Button
         android:id="@+id/loginadmin"
@@ -54,14 +54,14 @@
         android:id="@+id/admin_ID"
         android:layout_width="336dp"
         android:layout_height="59dp"
-        app:layout_constraintBottom_toTopOf="@+id/EmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
         android:hint="Signature"
         android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/EmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.343" />
+        app:layout_constraintVertical_bias="0.718" />
 
     <EditText
         android:id="@+id/EmailAddress"
@@ -111,4 +111,17 @@
 
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Admin"
+        android:textSize="23dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/textinputlayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.302" />
 </androidx.constraintlayout.widget.ConstraintLayout>
