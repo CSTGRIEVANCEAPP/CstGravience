@@ -55,6 +55,7 @@ TextView reset;
       userlogin.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
+//              startActivity(new Intent(UserLogin.this,Homepage.class));
               Progress_Bar.setVisibility(View.VISIBLE);
               String email=emailaddress.getText().toString().trim();
               String password=Password.getText().toString().trim();

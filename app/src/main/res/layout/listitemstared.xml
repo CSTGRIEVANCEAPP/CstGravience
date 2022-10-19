@@ -49,6 +49,7 @@
                     android:text="Lets be supportiveLets be
                 supportiveLLets be supportiveLets be supportiveets be supportiveLets
                 be supportive,Lets be supportive"
+                    android:textColor="@color/purple_500"
                     tools:ignore="MissingConstraints">
 
                 </TextView>

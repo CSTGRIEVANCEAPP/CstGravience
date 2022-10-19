@@ -11,6 +11,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 public class adapterformainhome extends RecyclerView.Adapter<adapterformainhome.MyViewHolderHome> {
@@ -41,6 +44,9 @@ public class adapterformainhome extends RecyclerView.Adapter<adapterformainhome.
         holder.Add_to_Starred.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                DatabaseReference databaseReference = firebaseDatabase.getReference("starred");
+
                 Toast.makeText(context, ""+displaydatamodel.getGrievance(), Toast.LENGTH_SHORT).show();
             }
         });
