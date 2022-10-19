@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -75,15 +77,19 @@ public class GravienceForm  extends AppCompatActivity {
       addtodrafts.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-                String cate = spinner.getSelectedItem().toString();
-                String grievance = addGrievance.getText().toString();
+              String sCategory = spinner.getSelectedItem().toString();
+              String grievance = Grievance_Text.getText().toString();
+              FirebaseUser cUser = FirebaseAuth.getInstance().getCurrentUser();
 
-                Intent intent = new Intent(GravienceForm.this,Drafts.class);
-                intent.putExtra("keycate", cate);
-                intent.putExtra("keygrievance",grievance);
-                startActivity(intent);
+              String uID = cUser.getUid();
+              String uEmail = cUser.getEmail().toString();
+//                Toast.makeText(GravienceForm.this,uID+"="+uEmail+sCategory+grievance,Toast.LENGTH_SHORT).show();
+              FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+              DatabaseReference databaseReference = firebaseDatabase.getReference("Draft");
 
-
+              String key = databaseReference.push().getKey();
+              DraftGrievance draftGrievance = new DraftGrievance(sCategory,grievance,uEmail);
+              databaseReference.child(key).setValue(draftGrievance);
           }
       });
     }
