@@ -7,6 +7,17 @@
     android:background="#0F0C24"
     tools:context=".Homepage">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_fab"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:outlineAmbientShadowColor="@color/black"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/ic_baseline_adminlogout_24"/>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,6 +61,8 @@
                     android:layout_height="wrap_content"
                     android:icon="@drawable/others"
                     android:text="Others" />
+
+
             </com.google.android.material.tabs.TabLayout>
 
 

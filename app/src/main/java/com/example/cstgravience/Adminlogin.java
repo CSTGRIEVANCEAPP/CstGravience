@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +26,9 @@ Button adminlogin;
 EditText admin_email,admin_password,admin_ID;
 FirebaseAuth Admin_Auth;
 ProgressBar Progress_Bar;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +56,7 @@ ProgressBar Progress_Bar;
                     return;
                 }
 
-                if(!admin_id.equals("#TEN@zin&02200168")){
+                if(!admin_id.equals("123")){
                     Progress_Bar.setVisibility(View.GONE);
                     admin_ID.setError("Wrong ID");
                   return;
@@ -94,5 +100,7 @@ ProgressBar Progress_Bar;
 
             }
         });
+
+
     }
 }

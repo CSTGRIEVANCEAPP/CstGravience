@@ -57,7 +57,7 @@ FirebaseAuth mAuth;
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(resetpassword.this, "Check Your Email to reset", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(resetpassword.this, "Check Your Email to reset. Password should have more than 8 characters", Toast.LENGTH_SHORT).show();
                     Progress_Bar.setVisibility(View.INVISIBLE );
                 }else{
                     Toast.makeText(resetpassword.this, "Error 404", Toast.LENGTH_SHORT).show();
