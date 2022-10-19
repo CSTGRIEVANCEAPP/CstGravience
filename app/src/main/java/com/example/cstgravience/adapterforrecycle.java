@@ -47,6 +47,7 @@ public class adapterforrecycle extends RecyclerView.Adapter<adapterforrecycle.My
         HelperClass datamodel= newsarraylist.get(position);
         holder.grievance.setText(datamodel.getGrievance());
         holder.grievance_Id.setText(datamodel.getGrievanceId());
+        holder.dateOFpost.setText(datamodel.getDate());
 
         holder.btn_del.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,7 +156,7 @@ public class adapterforrecycle extends RecyclerView.Adapter<adapterforrecycle.My
     }
 
     public  static class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView grievance,grievance_Id;
+        TextView grievance,grievance_Id,dateOFpost;
         Button btn_add, btn_del;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -164,6 +165,7 @@ public class adapterforrecycle extends RecyclerView.Adapter<adapterforrecycle.My
             btn_add = (Button) itemView.findViewById(R.id.admin_addGrievance);
             btn_del = (Button) itemView.findViewById(R.id.admin_deleteGrievance);
             grievance_Id=itemView.findViewById(R.id.grievance_ID);
+            dateOFpost = itemView.findViewById(R.id.Date_Of_Post);
         }
     }
 }

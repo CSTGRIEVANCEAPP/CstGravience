@@ -50,6 +50,7 @@ public class adapterformainhome extends RecyclerView.Adapter<adapterformainhome.
         displaydatamodel displaydatamodel =homearraylist.get(position);
         holder.GVRANCE_TITLE.setText(displaydatamodel.getName());
         holder.displaygrievance.setText(displaydatamodel.getGrievance());
+        holder.postedDate.setText(displaydatamodel.getDate());
         holder.Add_to_Starred.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,11 +68,12 @@ public class adapterformainhome extends RecyclerView.Adapter<adapterformainhome.
                     public void onClick(DialogInterface dialog, int which) {
                         String uID = cUser.getUid();
                         String uEmail = cUser.getEmail().toString();
+                        String pdate = holder.postedDate.getText().toString();
 //                Toast.makeText(GravienceForm.this,uID+"="+uEmail+sCategory+grievance,Toast.LENGTH_SHORT).show();
                         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
                         DatabaseReference databaseReference = firebaseDatabase.getReference("starred");
                         String key = databaseReference.push().getKey();
-                        StarredDataModel starredDataModel = new StarredDataModel(uEmail,sCategory,grievance,key);
+                        StarredDataModel starredDataModel = new StarredDataModel(uEmail,sCategory,grievance,key,pdate);
                         databaseReference.child(key).setValue(starredDataModel);
 
                         holder.Add_to_Starred.setBackgroundColor(R.color.black);
@@ -106,7 +108,7 @@ public class adapterformainhome extends RecyclerView.Adapter<adapterformainhome.
 
     public static class MyViewHolderHome extends RecyclerView.ViewHolder {
 
-        TextView displaygrievance,GVRANCE_TITLE;
+        TextView displaygrievance,GVRANCE_TITLE,postedDate;
         Button Add_to_Starred;
 
         public MyViewHolderHome(@NonNull View itemView) {
@@ -114,6 +116,7 @@ public class adapterformainhome extends RecyclerView.Adapter<adapterformainhome.
             displaygrievance = itemView.findViewById(R.id.grievance);
             Add_to_Starred = itemView.findViewById(R.id.addtostarred);
             GVRANCE_TITLE = itemView.findViewById(R.id.GVRANCE_Title);
+            postedDate = itemView.findViewById(R.id.posted_ON_date);
         }
     }
 }

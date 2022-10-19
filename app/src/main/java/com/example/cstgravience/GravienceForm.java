@@ -18,6 +18,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
+
+import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GravienceForm  extends AppCompatActivity {
     Button addGrievance,cancel_button,addtodrafts;
@@ -47,27 +53,58 @@ public class GravienceForm  extends AppCompatActivity {
         Grievance_Text=(EditText) findViewById(R.id.ugrievance);
         addtodrafts = (Button) findViewById(R.id.addtodrafts);
 
+        cancel_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Grievance_Text.setText("");
+                spinner.setSelection(0);
+            }
+        });
 
         addGrievance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String TextGv = Grievance_Text.getText().toString();
 
                 if(spinner.getSelectedItemPosition()==0){
                     Toast.makeText(GravienceForm.this, "Please select a category", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                else if(TextGv.matches("")){
+                    Toast.makeText(GravienceForm.this,"Please write your Grievance", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 else {
-                    rootNode = FirebaseDatabase.getInstance();
-                    reference = rootNode.getReference("category");
-                    String key = reference.push().getKey();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(Grievance_Text.getContext());
+                    builder.setTitle("Are you sure?");
+                    builder.setMessage("Posted data can't be undo.");
 
+                    builder.setPositiveButton("Post", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            rootNode = FirebaseDatabase.getInstance();
+                            reference = rootNode.getReference("category");
+                            String key = reference.push().getKey();
+                            Date d = new Date();
+                            String date =String.valueOf(d);
+                            Toast.makeText(GravienceForm.this, date+"", Toast.LENGTH_SHORT).show();
 
-
-                    String grievance = Grievance_Text.getText().toString();
-                    String sCategory = spinner.getSelectedItem().toString();
-                    Toast.makeText(GravienceForm.this, sCategory + "", Toast.LENGTH_SHORT).show();
-                    HelperClass helperClass = new HelperClass(grievance, key,sCategory);
-                    reference.child(sCategory).child(key).setValue(helperClass);
+                            String grievance = Grievance_Text.getText().toString();
+                            String sCategory = spinner.getSelectedItem().toString();
+                            HelperClass helperClass = new HelperClass(grievance, key,sCategory,date);
+                            reference.child(sCategory).child(key).setValue(helperClass);
+                            Toast.makeText(GravienceForm.this, "Grievance Posted", Toast.LENGTH_SHORT).show();
+                            Grievance_Text.setText("");
+                            spinner.setSelection(0);
+                        }
+                    });
+                    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(Grievance_Text.getContext(),"Cancelled",Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    builder.show();
                 }
             }
         });
@@ -79,6 +116,16 @@ public class GravienceForm  extends AppCompatActivity {
       addtodrafts.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
+              String grievance = Grievance_Text.getText().toString();
+              if(spinner.getSelectedItemPosition()==0){
+                  Toast.makeText(GravienceForm.this, "Please select a category", Toast.LENGTH_SHORT).show();
+                  return;
+              }
+              if(grievance.matches("")){
+                  Toast.makeText(GravienceForm.this,"Please write your Grievance", Toast.LENGTH_SHORT).show();
+                  return;
+              }
+
               AlertDialog.Builder builder = new AlertDialog.Builder(Grievance_Text.getContext());
               builder.setTitle("Are you sure?");
               builder.setMessage("Added data can't be undo.");
@@ -96,15 +143,22 @@ public class GravienceForm  extends AppCompatActivity {
                       DatabaseReference databaseReference = firebaseDatabase.getReference("Draft");
 
                       String key = databaseReference.push().getKey();
-                      DraftGrievance draftGrievance = new DraftGrievance(sCategory,grievance,uEmail,key);
+                      Date d = new Date();
+                      String date =String.valueOf(d);
+                      DraftGrievance draftGrievance = new DraftGrievance(sCategory,grievance,uEmail,key,date);
                       databaseReference.child(key).setValue(draftGrievance);
 
+                      Toast.makeText(Grievance_Text.getContext(),"Added to Your Draft",Toast.LENGTH_SHORT).show();
+                      Grievance_Text.setText("");
+                      spinner.setSelection(0);
                   }
               });
 
               builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                   @Override
                   public void onClick(DialogInterface dialog, int which) {
+                      Grievance_Text.setText("");
+                      spinner.setSelection(0);
                       Toast.makeText(Grievance_Text.getContext(),"Cancelled",Toast.LENGTH_SHORT).show();
                   }
               });

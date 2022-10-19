@@ -45,6 +45,7 @@ public class adapterforhostel extends RecyclerView.Adapter<adapterforhostel.MyVi
         hdatamodel hdatamodel= newsarraylist.get(position);
         holder.grievance.setText(hdatamodel.getGrievance());
         holder.grievance_Id.setText(hdatamodel.getGrievanceId());
+        holder.post_date.setText(hdatamodel.getDate());
 
         holder.btn_del.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,7 +156,7 @@ public class adapterforhostel extends RecyclerView.Adapter<adapterforhostel.MyVi
 
     public  static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView grievance,grievance_Id;
+        TextView grievance,grievance_Id,post_date;
         Button btn_add, btn_del;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -163,6 +164,7 @@ public class adapterforhostel extends RecyclerView.Adapter<adapterforhostel.MyVi
             btn_add = (Button) itemView.findViewById(R.id.admin_addGrievance);
             btn_del = (Button) itemView.findViewById(R.id.admin_deleteGrievance);
             grievance_Id=itemView.findViewById(R.id.grievance_ID);
+            post_date = itemView.findViewById(R.id.Date_Of_Post);
         }
     }
 }

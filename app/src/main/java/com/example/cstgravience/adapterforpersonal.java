@@ -45,6 +45,7 @@ public class adapterforpersonal extends RecyclerView.Adapter<adapterforpersonal.
         pdatamodel pdatamodel= newsarraylist.get(position);
         holder.grievance.setText(pdatamodel.getGrievance());
         holder.grievance_Id.setText(pdatamodel.getGrievanceId());
+        holder.posted_date.setText(pdatamodel.getDate());
 
         holder.btn_del.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,7 +156,7 @@ public class adapterforpersonal extends RecyclerView.Adapter<adapterforpersonal.
 
     public  static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView grievance,grievance_Id;
+        TextView grievance,grievance_Id,posted_date;
         Button btn_add,btn_del;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -163,6 +164,7 @@ public class adapterforpersonal extends RecyclerView.Adapter<adapterforpersonal.
             btn_add = (Button) itemView.findViewById(R.id.admin_addGrievance);
             btn_del = (Button) itemView.findViewById(R.id.admin_deleteGrievance);
             grievance_Id=itemView.findViewById(R.id.grievance_ID);
+            posted_date = itemView.findViewById(R.id.Date_Of_Post);
         }
     }
 }

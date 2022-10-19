@@ -26,7 +26,7 @@ public class StarredAdapter extends RecyclerView.Adapter<StarredAdapter.ExampleV
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView GrievanceTopic,GrievanceContent,DG_ID;
+        public TextView GrievanceTopic,GrievanceContent,DG_ID,DateOfGrievancePost;
         Button StarredGdeletBtn, GPostBtn;
 
         public ExampleViewHolder(@NonNull View itemView) {
@@ -37,6 +37,7 @@ public class StarredAdapter extends RecyclerView.Adapter<StarredAdapter.ExampleV
             StarredGdeletBtn = itemView.findViewById(R.id.DeletefromDraft);
             DG_ID = itemView.findViewById(R.id.DG_ID);
             GPostBtn = itemView.findViewById(R.id.Draft_PostBtn);
+            DateOfGrievancePost = itemView.findViewById(R.id.post_date);
         }
     }
     public StarredAdapter(ArrayList<StarredDataModel> starredGrievanceList){
@@ -57,6 +58,7 @@ public class StarredAdapter extends RecyclerView.Adapter<StarredAdapter.ExampleV
         holder.GrievanceTopic.setText(starredGrievance.getGrievanceTITLE());
         holder.GrievanceContent.setText(starredGrievance.getGrieveanceTEXT());
         holder.DG_ID.setText(starredGrievance.getStarredGrievanceID());
+        holder.DateOfGrievancePost.setText(starredGrievance.getDate());
 
         holder.StarredGdeletBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +81,12 @@ public class StarredAdapter extends RecyclerView.Adapter<StarredAdapter.ExampleV
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                                     dataSnapshot.getRef().removeValue();
+
+                                    holder.GrievanceTopic.setText("");
+                                    holder.GrievanceContent.setText("");
+                                    holder.DateOfGrievancePost.setText("");
+                                    holder.StarredGdeletBtn.setVisibility(View.GONE);
+                                    Toast.makeText(holder.GrievanceContent.getContext(),"Removed from Starred List",Toast.LENGTH_SHORT).show();
                                 }
                             }
 

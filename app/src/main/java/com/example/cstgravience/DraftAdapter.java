@@ -20,13 +20,14 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class DraftAdapter extends RecyclerView.Adapter<DraftAdapter.ExampleViewHolder> {
     private ArrayList<DraftGrievance>  dGrievanceList;
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView GrievanceTopic,GrievanceContent,DG_ID;
+        public TextView GrievanceTopic,GrievanceContent,DG_ID,post_date;
         Button Post_DGrievance,draftGdeleteBtn;
 
         public ExampleViewHolder(@NonNull View itemView) {
@@ -37,6 +38,7 @@ public class DraftAdapter extends RecyclerView.Adapter<DraftAdapter.ExampleViewH
             Post_DGrievance = itemView.findViewById(R.id.Draft_PostBtn);
             DG_ID = itemView.findViewById(R.id.DG_ID);
             draftGdeleteBtn = itemView.findViewById(R.id.DeletefromDraft);
+            post_date = itemView.findViewById(R.id.post_date);
         }
     }
 
@@ -59,6 +61,7 @@ public class DraftAdapter extends RecyclerView.Adapter<DraftAdapter.ExampleViewH
         holder.GrievanceTopic.setText(draftGrievance.getGrievance_Category());
         holder.GrievanceContent.setText(draftGrievance.getGrievance_Text());
         holder.DG_ID.setText(draftGrievance.getGrievanceID());
+        holder.post_date.setText(draftGrievance.getDate());
 
 
         holder.Post_DGrievance.setOnClickListener(new View.OnClickListener() {
@@ -76,10 +79,12 @@ public class DraftAdapter extends RecyclerView.Adapter<DraftAdapter.ExampleViewH
                         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
                         DatabaseReference databaseReference = firebaseDatabase.getReference("category");
                         String key = databaseReference.push().getKey();
+                        Date d = new Date();
+                        String date =String.valueOf(d);
 
                         String grievance = holder.GrievanceContent.getText().toString();
                         String sCategory = holder.GrievanceTopic.getText().toString();
-                        HelperClass helperClass = new HelperClass(grievance, key,sCategory);
+                        HelperClass helperClass = new HelperClass(grievance, key,sCategory,date);
                         databaseReference.child(sCategory).child(key).setValue(helperClass);
                         String grivanceid = holder.DG_ID.getText().toString();
 
@@ -90,6 +95,14 @@ public class DraftAdapter extends RecyclerView.Adapter<DraftAdapter.ExampleViewH
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                                     dataSnapshot.getRef().removeValue();
+
+
+                                    holder.GrievanceContent.setText("");
+                                    holder.GrievanceTopic.setText("");
+                                    holder.post_date.setText("");
+                                    holder.Post_DGrievance.setVisibility(View.GONE);
+                                    holder.draftGdeleteBtn.setVisibility(View.GONE);
+                                    Toast.makeText(holder.GrievanceContent.getContext(),"The Grievance Posted",Toast.LENGTH_SHORT).show();
                                 }
                             }
 
@@ -133,6 +146,12 @@ public class DraftAdapter extends RecyclerView.Adapter<DraftAdapter.ExampleViewH
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                                 dataSnapshot.getRef().removeValue();
+
+                                holder.GrievanceContent.setText("");
+                                holder.GrievanceTopic.setText("");
+                                holder.post_date.setText("");
+                                holder.Post_DGrievance.setVisibility(View.GONE);
+                                holder.draftGdeleteBtn.setVisibility(View.GONE);
                                 Toast.makeText(holder.GrievanceContent.getContext(),"Deleted",Toast.LENGTH_SHORT).show();
                             }
                         }
