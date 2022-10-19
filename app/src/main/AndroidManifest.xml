@@ -24,7 +24,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".mypost"
+            android:name=".Starred"
             android:exported="false" />
         <activity
             android:name=".resetpassword"

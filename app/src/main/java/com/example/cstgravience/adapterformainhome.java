@@ -11,6 +11,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -44,10 +46,23 @@ public class adapterformainhome extends RecyclerView.Adapter<adapterformainhome.
         holder.Add_to_Starred.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-                DatabaseReference databaseReference = firebaseDatabase.getReference("starred");
+
 
                 Toast.makeText(context, ""+displaydatamodel.getGrievance(), Toast.LENGTH_SHORT).show();
+
+                String sCategory = holder.GVRANCE_TITLE.getText().toString();
+                String grievance = holder.displaygrievance.getText().toString();
+                FirebaseUser cUser = FirebaseAuth.getInstance().getCurrentUser();
+
+
+                String uID = cUser.getUid();
+                String uEmail = cUser.getEmail().toString();
+//                Toast.makeText(GravienceForm.this,uID+"="+uEmail+sCategory+grievance,Toast.LENGTH_SHORT).show();
+                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                DatabaseReference databaseReference = firebaseDatabase.getReference("starred");
+                String key = databaseReference.push().getKey();
+                StarredDataModel starredDataModel = new StarredDataModel(uEmail,sCategory,grievance);
+                databaseReference.child(key).setValue(starredDataModel);
             }
         });
 

@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.cstgravience.Drafts;
 import com.example.cstgravience.R;
 import com.example.cstgravience.Signup;
+import com.example.cstgravience.Starred;
 import com.example.cstgravience.change_password;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -29,7 +30,7 @@ public class Profile extends Fragment {
 
     FirebaseUser user;
     TextView userinfo;
-    Button changepasswordbtn,signout,drafts;
+    Button changepasswordbtn,signout,drafts,starredButton;
 
 
     @Override
@@ -42,17 +43,7 @@ public class Profile extends Fragment {
        user=FirebaseAuth.getInstance().getCurrentUser();
        signout=view.findViewById(R.id.signout);
        drafts=view.findViewById(R.id.drafts);
-       userinfo=view.findViewById(R.id.userinfo);
-
-        FirebaseUser cUser = FirebaseAuth.getInstance().getCurrentUser();
-
-        String uID = cUser.getEmail();
-
-        userinfo.setText(uID);
-
-
-
-
+       starredButton = view.findViewById(R.id.starredb);
        changepasswordbtn.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
@@ -67,6 +58,14 @@ public class Profile extends Fragment {
                startActivity(intent);
            }
        });
+       starredButton.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent intent = new Intent(getActivity(), Starred.class);
+               startActivity(intent);
+           }
+       });
+
        signout.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
