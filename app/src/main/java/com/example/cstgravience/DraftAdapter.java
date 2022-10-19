@@ -133,6 +133,7 @@ public class DraftAdapter extends RecyclerView.Adapter<DraftAdapter.ExampleViewH
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                                 dataSnapshot.getRef().removeValue();
+                                Toast.makeText(holder.GrievanceContent.getContext(),"Deleted",Toast.LENGTH_SHORT).show();
                             }
                         }
 
